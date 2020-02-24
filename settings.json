@@ -1,0 +1,5 @@
+{
+  "keyboard.dispatch": "keyCode",
+  "editor.minimap.enabled": false,
+  "hoogle-vscode.maxResults": 20
+}
