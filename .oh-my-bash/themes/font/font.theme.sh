@@ -53,10 +53,14 @@ function prompt_command() {
         last_char="!"
     fi
 
+    if [[ -n "$IN_NIX_SHELL" ]]; then
+        nix_shell=" ${bold_red}nix-shell${normal}"
+    fi
+
     # Append new history lines to history file
     history -a
 
-    PS1="$(clock_prompt)${virtualenv}${hostname} ${bold_cyan}\W $(scm_prompt_char_info)${ret_status}${last_char} ${normal}"
+    PS1="$(clock_prompt)${virtualenv}${hostname}${nix_shell} ${bold_cyan}\W $(scm_prompt_char_info)${ret_status}${last_char} ${normal}"
 }
 
 safe_append_prompt_command prompt_command
