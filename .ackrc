@@ -1,2 +1,2 @@
---type-set=bazel:ext:bazel
---type-set=bz:ext:bazel
+--type-set=bazel:ext:bazel,bzl
+--type-set=bz:ext:bazel,bzl

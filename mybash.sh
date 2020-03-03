@@ -1,5 +1,7 @@
 # Script sourced from .bashrc
 
+alias gitg='gitg --all'
+
 # Autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 

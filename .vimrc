@@ -45,3 +45,6 @@ set hlsearch
 " cd .vim/bundle; git clone https://github.com/dracula/vim dracula
 colorscheme dracula
 " colorscheme farout
+
+set laststatus=2
+set statusline+=%{FugitiveStatusline()}
