@@ -1,0 +1,2 @@
+--type-set=bazel:ext:bazel
+--type-set=bz:ext:bazel
