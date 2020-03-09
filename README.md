@@ -13,3 +13,7 @@ Personal configuration files such as .vimrc
   echo -n "${f%.*} "; gpg --decrypt "$HOME/.password-store/$f" 2> /dev/null | tail -n 3
   done
   ```
+
+# git
+
+The git equivalent of `hg histedit -r foo` is `git rebase --interactive foo^`
