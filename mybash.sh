@@ -1,6 +1,7 @@
 # Script sourced from .bashrc
 
 alias gitg='gitg --all'
+alias git='git --no-pager'
 
 # Autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh

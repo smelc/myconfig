@@ -22,7 +22,7 @@
 #
 
 SCM_NONE_CHAR=''
-SCM_THEME_PROMPT_DIRTY=" ${red}✗"
+SCM_THEME_PROMPT_DIRTY="${red}*"
 SCM_THEME_PROMPT_CLEAN=""
 SCM_THEME_PROMPT_PREFIX="${green}|"
 SCM_THEME_PROMPT_SUFFIX="${green}|"
@@ -44,6 +44,14 @@ function prompt_command() {
     hostname="${bold_black}\u@\h"
     virtualenv="${white}$(virtualenv_prompt)"
 
+    here=`pwd`
+    if [[ "$here" == "$HOME"* ]]; then
+        current_dir="~/"$(realpath --relative-to="$HOME" "$here")
+    else
+        current_dir="$here"
+    fi
+    current_dir+="${normal}"
+
     # Set return status color
     if [[ ${RC} == 0 ]]; then
         ret_status="${bold_green}"
@@ -63,7 +71,7 @@ function prompt_command() {
     # Append new history lines to history file
     history -a
 
-    PS1="$(clock_prompt)${virtualenv}${hostname}${direnv_marker}${nix_shell} ${bold_cyan}\W $(scm_prompt_char_info)${ret_status}${last_char} ${normal}"
+    PS1="$(clock_prompt)${virtualenv}${hostname}${direnv_marker}${nix_shell} ${bold_cyan}${current_dir} $(scm_prompt_char_info)${ret_status}${last_char} ${normal}"
 }
 
 safe_append_prompt_command prompt_command
