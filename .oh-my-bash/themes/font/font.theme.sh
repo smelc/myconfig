@@ -62,7 +62,7 @@ function prompt_command() {
     fi
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
-        nix_shell=" ${bold_red}nix-shell${normal}"
+        nix_shell=" ${bold_red}${IN_NIX_SHELL}${normal}"
     fi
     if [[ -n "$DIRENV_DIR" ]]; then
         direnv_marker=" ${bold_green}direnv${normal}"
