@@ -16,4 +16,5 @@ Personal configuration files such as .vimrc
 
 # git
 
-The git equivalent of `hg histedit -r foo` is `git rebase --interactive foo^`
+* The git equivalent of `hg histedit -r foo` is `git rebase --interactive foo^`
+* See the history of a file: `git log --follow -p -- path-to-file`
