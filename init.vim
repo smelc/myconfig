@@ -9,5 +9,11 @@ call plug#end()
 nmap <S-l> :tabn<CR>
 nmap <S-h> :tabp<CR>
 
+" Always display line numbers
+set number
+
+" Insert spaces instead of tabs
+set expandtab
+
 :set colorcolumn=80
 colorscheme dracula " farout
