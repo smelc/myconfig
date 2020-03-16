@@ -39,6 +39,8 @@ let g:tagbar_left = 1
 " Default is 10 O_o
 set tabpagemax=128
 
+:set colorcolumn=80
+
 " Highlight search results
 set hlsearch
 

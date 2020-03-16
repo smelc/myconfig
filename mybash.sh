@@ -1,6 +1,7 @@
 # Script sourced from .bashrc
 
 alias gitg='gitg --all'
+alias gitk='gitk --all'
 alias git='git --no-pager'
 
 # Autojump
