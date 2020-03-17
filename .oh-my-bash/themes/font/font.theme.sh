@@ -47,6 +47,8 @@ function prompt_command() {
     here=`pwd`
     if [[ "$here" == "$HOME"* ]]; then
         current_dir="~/"$(realpath --relative-to="$HOME" "$here")
+    elif [[ "$here" == "/media/crypt1/repos"* ]]; then
+        current_dir="repos/"$(realpath --relative-to="/media/crypt1/repos" "$here")
     else
         current_dir="$here"
     fi

@@ -3,6 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'fcpg/vim-farout' " farout theme as visible in http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/
 Plug 'dracula/vim', { 'as': 'dracula' } " dracule theme
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " https://github.com/neoclide/coc.nvim
 
 call plug#end()
 
@@ -17,3 +18,5 @@ set expandtab
 
 :set colorcolumn=80
 colorscheme dracula " farout
+
+runtime coc_config_nvim.vim

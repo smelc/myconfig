@@ -4,6 +4,13 @@
 
 set +eux
 
+#########################################
+# nodejs (required by neovim's coc.vim) #
+#########################################
+
+sudo apt install nodejs
+# yarn must be installed too, look for instructions online
+
 ########
 # nvim #
 ########
@@ -25,6 +32,9 @@ cd $HOME
 mkdir ".config/nvim"
 cd ".config/nvim"
 ln -s "${HERE}/init.vim" .
+ln -s "${HERE}/coc_config_nvim.vim" .
+# Content of next file was copied from https://github.com/digital-asset/ghcide#using-it
+ln -s "${HERE}/coc-settings.json" .
 cd $HERE
 
 # Install vim-plug
