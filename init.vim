@@ -6,6 +6,7 @@ Plug 'dracula/vim', { 'as': 'dracula' } " dracula theme
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " https://github.com/neoclide/coc.nvim
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
+Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
 
 call plug#end()
 
@@ -35,5 +36,9 @@ set colorcolumn=80
 set noswapfile
 
 colorscheme dracula " farout
+
+" Highlight trailing spaces:
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 runtime coc_config_nvim.vim
