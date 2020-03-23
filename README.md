@@ -4,7 +4,7 @@ Personal configuration files such as .vimrc
 
 # Tips and tricks
 
-* Generate strong password: `apg -a 0 -s -m 48`
+* Generate strong password: `apg -a 1 -s -m 48`
 * List plain [pass](https://www.passwordstore.org/)words:
 
   ```

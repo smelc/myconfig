@@ -4,6 +4,8 @@ alias gitg='gitg --all'
 alias gitk='gitk --all'
 alias git='git --no-pager'
 
+export CRYPT1="/media/crypt1/"
+
 # Autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
