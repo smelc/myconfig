@@ -41,7 +41,9 @@ function prompt_command() {
     # This needs to be first to save last command return code
     local RC="$?"
 
-    hostname="${USER}@$(hostname)"
+    hostname="${USER}"
+    which hostname &> /dev/null
+    [[ "$?" == "0" ]] && hostname+="@$(hostname)"
     if [[ "$hostname" == "churlin@karak-azul" ]]; then
         # Save width
         hostname="ch@ka"
