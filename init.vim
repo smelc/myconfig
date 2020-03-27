@@ -10,13 +10,22 @@ Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'vim-airline/vim-airline'
 Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
 Plug 'sbdchd/neoformat' " :NeoFormat
+Plug 'mhinz/vim-grepper'
 
 call plug#end()
 
 nmap <S-l> :tabn<CR>
 nmap <S-h> :tabp<CR>
+
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
+nnoremap <leader>hU :GitGutterUndoHunk<cr>
+
+" https://github.com/mhinz/vim-grepper/wiki/example-configurations-and-mappings
+nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>G :Grepper -tool ag<cr>
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
 
 " Always display line numbers
 set number
@@ -33,12 +42,12 @@ set noswapfile
 
 colorscheme dracula " farout
 
+" See explanations at
+" https://alldrops.info/posts/vim/2018-05-15_understand-vim-mappings-and-create-your-own-shortcuts/
+nnoremap <Leader>nf :Neoformat<CR>
+
+runtime coc_config_nvim.vim
+
 " Highlight trailing spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-" See explanations at
-" https://alldrops.info/posts/vim/2018-05-15_understand-vim-mappings-and-create-your-own-shortcuts/
-nnoremap nf :Neoformat<CR>
-
-runtime coc_config_nvim.vim

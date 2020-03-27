@@ -4,6 +4,11 @@
 
 set +eux
 
+set -e
+which ag &> /dev/null
+[[ "$?" != "0" ]] && sudo apt install silversearcher-ag
+set +e
+
 #########################################
 # nodejs (required by neovim's coc.vim) #
 #########################################
@@ -16,7 +21,7 @@ sudo apt install nodejs
 ########
 
 set -e
-which nvim
+which nvim &> /dev/null
 RC="$?"
 set +e
 if [[ "$RC" != "0" ]]; then
