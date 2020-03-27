@@ -9,6 +9,7 @@ Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'vim-airline/vim-airline'
 Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
+Plug 'sbdchd/neoformat' " :NeoFormat
 
 call plug#end()
 
@@ -35,5 +36,9 @@ colorscheme dracula " farout
 " Highlight trailing spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" See explanations at
+" https://alldrops.info/posts/vim/2018-05-15_understand-vim-mappings-and-create-your-own-shortcuts/
+nnoremap nf :Neoformat<CR>
 
 runtime coc_config_nvim.vim
