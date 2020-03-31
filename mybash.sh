@@ -6,6 +6,11 @@ alias gitk='gitk --all'
 alias git='git --no-pager'
 
 export CRYPT1="/media/crypt1"
+export PATH="$PATH:$HOME/.fzf/bin"
+
+# From https://jekyllrb.com/docs/installation/ubuntu/
+export GEM_HOME="$HOME/gems"
+export PATH="$PATH:$HOME/gems/bin"
 
 # Autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source "$HOME/.autojump/etc/profile.d/autojump.sh"

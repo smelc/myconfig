@@ -11,6 +11,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
 Plug 'sbdchd/neoformat' " :NeoFormat
 Plug 'mhinz/vim-grepper'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'monkoose/fzf-hoogle.vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
