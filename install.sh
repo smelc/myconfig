@@ -51,3 +51,33 @@ if [[ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
   curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+#############
+# spacemacs #
+#############
+
+# https://github.com/ocaml/merlin/wiki/spacemacs-from-scratch
+if [[ ! -e "$HOME/.fonts/adobe-fonts/source-code-pro" ]]; then
+  git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git "$HOME/.fonts/adobe-fonts/source-code-pro"
+  fc-cache -f -v
+fi
+
+if [[ ! $(which emacs) ]]; then
+  sudo apt install emacs
+fi
+
+#########
+# ocaml #
+#########
+
+if [[ ! $(which opam) ]]; then
+  add-apt-repository ppa:avsm/ppa
+  apt update
+  apt install opam
+  opam init
+  opam config setup -a
+  # opam install merlin utop ocp-indent ounit2
+fi
+
+# for ocaml + spacemacs: https://github.com/ocaml/merlin/wiki/spacemacs-from-scratch#enable-ocaml
+# also: https://develop.spacemacs.org/layers/+lang/ocaml/README.html#using-merlin-for-error-reporting

@@ -17,7 +17,14 @@
         "hs",
         "lhs",
         "haskell"
-      ]
+      ],
+      "settings": {
+        "languageServerHaskell": {
+        "hlintOn": true,
+        "maxNumberOfProblems": 50,
+        "completionSnippetsOn": true
+        }
+      }
     }
   }
 }

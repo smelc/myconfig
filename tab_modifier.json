@@ -1,0 +1,37 @@
+{
+    "settings": {
+        "enable_new_version_notification": false
+    },
+    "rules": [
+        {
+            "name": "slack",
+            "detection": "CONTAINS",
+            "url_fragment": "app.slack.com",
+            "tab": {
+                "icon": "bullets/bullet-blue.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": "Slack",
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "makeitso",
+            "detection": "CONTAINS",
+            "url_fragment": "makeitso",
+            "tab": {
+                "icon": "bullets/bullet-purple.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        }
+    ]
+}
