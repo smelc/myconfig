@@ -2,6 +2,17 @@
 
 Personal configuration files such as .vimrc
 
+# opam
+
+Create installation local to directory: `opam switch create . --deps-only 4.10.0`
+
+Then for integration with [direnv](https://direnv.net/):
+
+``` bash
+> cat .envrc
+eval $(opam env)
+```
+
 # Tips and tricks
 
 * Generate strong password: `apg -a 1 -s -m 48`
@@ -18,3 +29,8 @@ Personal configuration files such as .vimrc
 
 * The git equivalent of `hg histedit -r foo` is `git rebase --interactive foo^`
 * See the history of a file: `git log --follow -p -- path-to-file`
+* Sign commits with git:
+  ```
+  git config user.signingkey secret_key_id
+  git commit -S -m ...
+  ```

@@ -14,6 +14,7 @@ Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 Plug 'tpope/vim-commentary'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
