@@ -31,6 +31,7 @@ eval $(opam env)
 * See the history of a file: `git log --follow -p -- path-to-file`
 * Sign commits with git:
   ```
-  git config user.signingkey secret_key_id
+  git config user.signingkey secret_key_id # Obtain key id with gpg --list-secret-keys --keyid-format LONG clement.hurlin@tweag.io
   git commit -S -m ...
   ```
+* Make repo using `pass-git-helper`: `git config credential.helper '!pass-git-helper $@'`

@@ -1,5 +1,11 @@
 {
   "keyboard.dispatch": "keyCode",
   "editor.minimap.enabled": false,
-  "hoogle-vscode.maxResults": 20
+  "hoogle-vscode.maxResults": 20,
+  "reason.format.width": 0,
+  "editor.rulers": [
+    80,
+    110
+  ],
+  "workbench.editor.enablePreview": false
 }

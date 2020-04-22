@@ -15,11 +15,14 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
 nmap <S-l> :tabn<CR>
 nmap <S-h> :tabp<CR>
+
+nmap <F8> :TagbarToggle<CR>
 
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
@@ -50,8 +53,8 @@ colorscheme dracula " farout
 " https://alldrops.info/posts/vim/2018-05-15_understand-vim-mappings-and-create-your-own-shortcuts/
 nnoremap <Leader>nf :Neoformat<CR>
 
-runtime coc_config_nvim.vim
-
 " Highlight trailing spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+runtime coc_config_nvim.vim

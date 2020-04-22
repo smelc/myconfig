@@ -70,11 +70,15 @@ function prompt_command() {
         last_char="!"
     fi
 
-    if [[ -n "$IN_NIX_SHELL" ]]; then
+    if [ -n "$IN_NIX_SHELL" ]; then
         nix_shell=" ${bold_red}${IN_NIX_SHELL}${normal}"
+    else
+        nix_shell=""
     fi
-    if [[ -n "$DIRENV_DIR" ]]; then
+    if [ -n "$DIRENV_DIR" ]; then
         direnv_marker=" ${bold_green}direnv${normal}"
+    else
+        direnv_marker=""
     fi
 
     # Append new history lines to history file

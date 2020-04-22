@@ -4,6 +4,9 @@
 alias gitg='gitg --all'
 alias gitk='gitk --all'
 alias git='git --no-pager'
+alias ago='ag --ocaml'
+
+export EDITOR="nvim"
 
 export CRYPT1="/media/crypt1"
 export PATH="$PATH:$HOME/.fzf/bin"

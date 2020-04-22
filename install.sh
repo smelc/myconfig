@@ -4,15 +4,40 @@
 
 set +eux
 
+function apt_install_if_missing() {
+  # Returns a wrong value if package was installed then removed
+  # Should not matter for this script
+  [[ $(dpkg -s "$1" > /dev/null) ]] || sudo apt install "$1"
+}
+
+apt_install_if_missing exuberant-ctags  # For https://github.com/majutsushi/tagbar
+
 [[ ! $(which ag) ]] && sudo apt install silversearcher-ag
 
-sudo apt install jq
+apt_install_if_missing jq
 
 # fzf
 if [[ ! $(which zfz) ]]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fsf/install
 fi
+
+[[ -e "$HOME/tools" ]] || mkdir "$HOME/tools"
+
+# pass-git-helper
+pushd "$HOME/tools"
+if [[ ! -e "pass-git-helper" ]]; then
+  git clone https://github.com/languitar/pass-git-helper
+  pushd "pass-git-helper"
+  apt_install_if_missing python3-setuptools
+  python3 setup.py install --user
+  [[ -e "git-pass-mapping.init" ]] || exit 1
+  pushd "$HOME/.config/pass-git-helper"
+  ln -s "$HOME/tools/git-pass-helper/git-pass-mapping.ini" .
+  popd
+  popd
+fi
+popd
 
 # for smelc.github.io
 gem install jekyll bundler github-pages
@@ -21,7 +46,7 @@ gem install jekyll bundler github-pages
 # nodejs (required by neovim's coc.vim) #
 #########################################
 
-sudo apt install nodejs
+apt_install_if_missing nodejs
 # yarn must be installed too, look for instructions online
 
 ########
