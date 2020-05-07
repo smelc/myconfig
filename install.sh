@@ -5,9 +5,9 @@
 set +eux
 
 function apt_install_if_missing() {
-  # Returns a wrong value if package was installed then removed
-  # Should not matter for this script
-  [[ $(dpkg -s "$1" > /dev/null) ]] || sudo apt install "$1"
+  local -r last_line=$(dpkg -l "$1" | tail -n 1)
+  if [[ "$last_line" == "ii"* ]]; then return 0; fi
+  sudo apt install "$1"
 }
 
 apt_install_if_missing exuberant-ctags  # For https://github.com/majutsushi/tagbar

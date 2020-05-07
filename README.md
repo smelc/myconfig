@@ -35,3 +35,4 @@ eval $(opam env)
   git commit -S -m ...
   ```
 * Make repo using `pass-git-helper`: `git config credential.helper '!pass-git-helper $@'`
+* Move `myBranch` to current commit: `git branch -f myBranch`
