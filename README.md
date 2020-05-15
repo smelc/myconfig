@@ -36,3 +36,15 @@ eval $(opam env)
   ```
 * Make repo using `pass-git-helper`: `git config credential.helper '!pass-git-helper $@'`
 * Move `myBranch` to current commit: `git branch -f myBranch`
+* Move local branch so that it matches remote: `git fetch origin; git reset --hard origin/myBranch`
+* Split a commit in two:
+
+  ```
+  git rebase -i commit_hash^ # record commit for edition ('e')
+  git reset HEAD^
+  git add ...
+  git commit -m "First part"
+  git add ...
+  git commit -m "Second part"
+  git rebase --continue
+  ```
