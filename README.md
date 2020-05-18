@@ -48,3 +48,4 @@ eval $(opam env)
   git commit -m "Second part"
   git rebase --continue
   ```
+* Undo commit, keeping changes: `git reset HEAD^`
