@@ -24,6 +24,7 @@ eval $(opam env)
   echo -n "${f%.*} "; gpg --decrypt "$HOME/.password-store/$f" 2> /dev/null | tail -n 3
   done
   ```
+* Inspect disk space consumption: `ncdu`
 
 # git
 

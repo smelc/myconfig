@@ -4,7 +4,7 @@
 alias gitg='gitg --all'
 alias gitk='gitk --all'
 alias git='git --no-pager'
-alias ago='ag --ocaml'
+alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto_001_PtCJ7pwo --ignore-dir src/proto_002_PsYLVpVv --ignore-dir src/proto_003_PsddFKi3 --ignore-dir src/proto_004_Pt24m4xi --ignore-dir src/proto_005_PsBABY5H --ignore-dir src/proto_005_PsBabyM1'
 
 export EDITOR="nvim"
 
