@@ -12,5 +12,6 @@
     "**/_opam": true,
     "**/.stack-work": true,
     "**/*.swp": true
-  }
+  },
+  "languageServerHaskell.hieVariant": "haskell-language-server"
 }
