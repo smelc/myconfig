@@ -13,5 +13,8 @@
     "**/.stack-work": true,
     "**/*.swp": true
   },
-  "languageServerHaskell.hieVariant": "haskell-language-server"
+  "languageServerHaskell.hieVariant": "haskell-language-server",
+  "[haskell]": {
+    "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
+  }
 }
