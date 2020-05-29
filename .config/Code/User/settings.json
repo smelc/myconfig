@@ -12,8 +12,5 @@
     "**/_opam": true,
     "**/.stack-work": true,
     "**/*.swp": true
-  },
-  "files.associations": {
-  
   }
 }

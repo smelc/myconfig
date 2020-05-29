@@ -20,9 +20,9 @@
       ],
       "settings": {
         "languageServerHaskell": {
-        "hlintOn": true,
-        "maxNumberOfProblems": 50,
-        "completionSnippetsOn": true
+          "hlintOn": true,
+          "maxNumberOfProblems": 50,
+          "completionSnippetsOn": true
         }
       }
     }
