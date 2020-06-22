@@ -16,5 +16,6 @@
   "languageServerHaskell.hieVariant": "haskell-language-server",
   "[haskell]": {
     "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
-  }
+  },
+  "shellcheck.disableVersionCheck": true
 }

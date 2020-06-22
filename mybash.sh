@@ -4,7 +4,21 @@
 alias gitg='gitg --all'
 alias gitk='gitk --all'
 alias git='git --no-pager'
+alias ag='ag --no-group' # so that vscode can jump from terminal search
 alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto_001_PtCJ7pwo --ignore-dir src/proto_002_PsYLVpVv --ignore-dir src/proto_003_PsddFKi3 --ignore-dir src/proto_004_Pt24m4xi --ignore-dir src/proto_005_PsBABY5H --ignore-dir src/proto_005_PsBabyM1'
+
+function run() {
+  echo "$@"
+  "$@"
+}
+
+function gitsync() {
+  [[ ! -z "$1" ]] || { echo "Name of remote should be specified"; return 1; }
+  run git fetch "$1" || return $?
+  # local -r branch=$(git rev-parse --abbrev-ref HEAD)
+  # run git reset --hard "origin/$branch" || return $?
+  run git reset --hard '@{u}' || return $?
+}
 
 export EDITOR="nvim"
 
