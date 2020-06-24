@@ -20,6 +20,23 @@ function gitsync() {
   run git reset --hard '@{u}' || return $?
 }
 
+##
+# Search files modified in the last 16 commits that contain a given
+# pattern. I use that to find the 'assert false' to be filled in.
+# Using the last 16 commits is an alternative to
+# `git ls-files "*.ml*"` which is too slow
+##
+function gitmine() {
+  [[ ! -z "$1" ]] || { echo "pattern to search should be specified"; return 1; }
+  local -r FILES=$(git diff-tree --no-commit-id --name-only -r HEAD~16..HEAD)
+  for FILE in $FILES
+  do
+    if [[ -e "$FILE" ]]; then
+      git blame -f -n "$FILE" | grep "Clément\|clément\|clement\|Hurlin\|hurlin" | grep "$1"
+    fi  # else file has been deleted in a commit between HEAD~16 and HEAD~1
+  done
+}
+
 export EDITOR="nvim"
 
 export CRYPT1="/media/crypt1"
