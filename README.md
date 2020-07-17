@@ -52,3 +52,4 @@ eval $(opam env)
 * Undo commit, keeping changes: `git reset HEAD^`
 * Unstage file (hereby keeping modifications): `git reset HEAD file`
 * Apply stash interactively: `git checkout -p stash@{0}`
+* Sign existing: commits `git rebase --exec 'git commit --amend --no-edit -n -S' -i ...`

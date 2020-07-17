@@ -6,6 +6,7 @@
         "--lsp"
       ],
       "rootPatterns": [
+        "hie.yaml",
         ".stack.yaml",
         "stack.yaml",
         ".hie-bios",
