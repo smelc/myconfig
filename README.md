@@ -25,6 +25,8 @@ eval $(opam env)
   done
   ```
 * Inspect disk space consumption: `ncdu`
+* Concatenate pdfs: `java -jar pdftk-all.jar 1.pdf 2.pdf cat output 1-2.pdf`
+  See also [https://doc.ubuntu-fr.org/pdftk](https://doc.ubuntu-fr.org/pdftk)
 
 # git
 
@@ -53,3 +55,4 @@ eval $(opam env)
 * Unstage file (hereby keeping modifications): `git reset HEAD file`
 * Apply stash interactively: `git checkout -p stash@{0}`
 * Sign existing: commits `git rebase --exec 'git commit --amend --no-edit -n -S' -i ...`
+* Always sign commits in local repository: `git config commit.gpgsign true`
