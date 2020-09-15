@@ -17,5 +17,11 @@
   "[haskell]": {
     "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
   },
-  "shellcheck.disableVersionCheck": true
+  "shellcheck.disableVersionCheck": true,
+  "workbench.activityBar.visible": true,
+  "window.zoomLevel": 0,
+  "[ocaml]": {
+    "editor.defaultFormatter": "scen.ocamlformat-vscode"
+  },
+  "haskell.trace.server": "messages"
 }

@@ -56,3 +56,8 @@ eval $(opam env)
 * Apply stash interactively: `git checkout -p stash@{0}`
 * Sign existing: commits `git rebase --exec 'git commit --amend --no-edit -n -S' -i ...`
 * Always sign commits in local repository: `git config commit.gpgsign true`
+* Undo last commit (keep its changes): `git reset --soft HEAD~1` (means returns in state of `HEAD~1` keeping the changes).
+* See commit content in editor:
+    * `git commit --verbose`
+    * `git config commit.verbose true`
+* Cherry pick commits A (**included**) to B: `git cherry-pick A^..B`

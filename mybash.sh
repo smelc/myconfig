@@ -3,7 +3,7 @@
 
 alias git='git --no-pager'
 alias ag='ag --no-group' # so that vscode can jump from terminal search
-alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto_001_PtCJ7pwo --ignore-dir src/proto_002_PsYLVpVv --ignore-dir src/proto_003_PsddFKi3 --ignore-dir src/proto_004_Pt24m4xi --ignore-dir src/proto_005_PsBABY5H --ignore-dir src/proto_005_PsBabyM1'
+alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto_001_PtCJ7pwo --ignore-dir src/proto_002_PsYLVpVv --ignore-dir src/proto_003_PsddFKi3 --ignore-dir src/proto_004_Pt24m4xi --ignore-dir src/proto_005_PsBABY5H --ignore-dir src/proto_005_PsBabyM1 --ignore-dir src/proto_006_PsCARTHA'
 alias gg='git grep -n' # so that vscode can jump from terminal search
 alias hlfinish='notify-send "process" "finished"'
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -16,11 +16,17 @@ function run() {
 }
 
 function gitsync() {
-  [[ ! -z "$1" ]] || { echo "Name of remote should be specified"; return 1; }
+  [[ -n "$1" ]] || { echo "Name of remote should be specified"; return 1; }
   run git fetch "$1" || return $?
   # local -r branch=$(git rev-parse --abbrev-ref HEAD)
   # run git reset --hard "origin/$branch" || return $?
   run git reset --hard '@{u}' || return $?
+}
+
+function gitbrco() {
+  [[ ! -z "$1" ]] || { echo "Name of branch should be specified"; return 1; }
+  git branch -f "$1"
+  git checkout "$1"
 }
 
 ##
@@ -30,7 +36,7 @@ function gitsync() {
 # `git ls-files "*.ml*"` which is too slow
 ##
 function gitmine() {
-  [[ ! -z "$1" ]] || { echo "pattern to search should be specified"; return 1; }
+  [[ -n "$1" ]] || { echo "pattern to search should be specified"; return 1; }
   local -r FILES=$(git diff-tree --no-commit-id --name-only -r HEAD~16..HEAD)
   for FILE in $FILES
   do
