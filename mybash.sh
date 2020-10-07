@@ -9,6 +9,7 @@ alias hlfinish='notify-send "process" "finished"'
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitsign="git rebase --exec 'git commit --amend --no-edit -n -S' -i"
 alias mockup-client="./tezos-client --mode mockup --base-dir /tmp/mockup"
+alias gitst="git status --untracked-files=no"
 
 function run() {
   echo "$@"

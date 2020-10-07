@@ -13,6 +13,14 @@ Then for integration with [direnv](https://direnv.net/):
 eval $(opam env)
 ```
 
+# ocaml
+
+Launch repl using the repo's libraries:
+
+```
+dune utop .
+```
+
 # Tips and tricks
 
 * Generate strong password: `apg -a 1 -s -m 48`
@@ -61,3 +69,4 @@ eval $(opam env)
     * `git commit --verbose`
     * `git config commit.verbose true`
 * Cherry pick commits A (**included**) to B: `git cherry-pick A^..B`
+* List commits from `foo` to `HEAD`: `git rev-list foo^..HEAD`
