@@ -35,6 +35,7 @@ dune utop .
 * Inspect disk space consumption: `ncdu`
 * Concatenate pdfs: `java -jar pdftk-all.jar 1.pdf 2.pdf cat output 1-2.pdf`
   See also [https://doc.ubuntu-fr.org/pdftk](https://doc.ubuntu-fr.org/pdftk)
+* Fix `meld`, `nautilus`, etc. slow opening: `systemctl --user restart gvfs-daemon.service`
 
 # git
 
@@ -70,3 +71,5 @@ dune utop .
     * `git config commit.verbose true`
 * Cherry pick commits A (**included**) to B: `git cherry-pick A^..B`
 * List commits from `foo` to `HEAD`: `git rev-list foo^..HEAD`
+* Copy file from commit `foo` to `HEAD`: `git checkout foo src/dir/file.ml`
+* Git push until commit foo: `git push <remote> <foo hash>:<branch>

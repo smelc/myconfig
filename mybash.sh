@@ -6,6 +6,7 @@ alias ag='ag --no-group' # so that vscode can jump from terminal search
 alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto_001_PtCJ7pwo --ignore-dir src/proto_002_PsYLVpVv --ignore-dir src/proto_003_PsddFKi3 --ignore-dir src/proto_004_Pt24m4xi --ignore-dir src/proto_005_PsBABY5H --ignore-dir src/proto_005_PsBabyM1 --ignore-dir src/proto_006_PsCARTHA'
 alias gg='git grep -n' # so that vscode can jump from terminal search
 alias hlfinish='notify-send "process" "finished"'
+alias bip='aplay --quiet $HOME/PERSONNEL/bipbip.wav'
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitsign="git rebase --exec 'git commit --amend --no-edit -n -S' -i"
 alias mockup-client="./tezos-client --mode mockup --base-dir /tmp/mockup"
@@ -25,9 +26,30 @@ function gitsync() {
 }
 
 function gitbrco() {
-  [[ ! -z "$1" ]] || { echo "Name of branch should be specified"; return 1; }
+  [[ -n "$1" ]] || { echo "Name of branch should be specified"; return 1; }
   git branch -f "$1"
   git checkout "$1"
+}
+
+function ocamlbootstrap() {
+  opam switch create . --deps-only 4.10.0 || return 1
+
+  eval $(opam env)
+
+  # Setup bin/nvim
+  mkdir -p "bin"
+  echo '#!/usr/bin/env bash' >> "bin/nvim" || return 1
+  echo '/usr/local/bin/nvim --cmd "set rtp+=$(git root)/_opam/share/merlin/vim" "$@"' >> "bin/nvim" || return 1
+
+  # Setup .envrc
+  echo 'eval $(opam env)' > .envrc || return 1
+  echo 'PATH_add bin' >> .envrc
+  echo 'unset PS1' >> .envrc
+
+  opam install merlin utop || return 1
+
+  opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git || return 1
+  opam install ocaml-lsp-server || return 1
 }
 
 ##
