@@ -17,20 +17,21 @@ if [ ! $(which stack) ]; then
 fi
 
 declare -r HS_SRC_DIR="hs_proj"
-declare -r HS_FILE="Script.hs"
+declare -r HS_FILE="Main.hs"
+declare -r RESOLVER="lts-16.20"
 
 [ -e "$HS_SRC_DIR" ] || mkdir "$HS_SRC_DIR"
 
 file_template=$(cat <<EOF
 #!/usr/bin/env stack
--- stack --resolver lts-14.27 runghc
+-- stack --resolver $RESOLVER runghc
 --
--- One can execute ./Script.hs thanks to the shebang line
+-- One can execute ./Main.hs thanks to the shebang line
 -- at the top of the file and the stack line below
 --
 -- To launch [ghcid](https://github.com/ndmitchell/ghcid)
 -- in a terminal, do:
---   stack exec ghcid -- --command="ghci GenAssets.hs"
+--   stack exec ghcid -- --command="ghci Main.hs"
 --
 -- To disable coc in vim if not working (do it right after opening!):
 --   :CocDisable
@@ -48,20 +49,21 @@ file_template=$(cat <<EOF
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Script where
+module Main where
 
 main :: IO ()
 main = do
-  putStrLn "Hello Jarod"
+  putStrLn "Hello World!"
 EOF
 )
 
 if [ ! -e "$HS_SRC_DIR/$HS_FILE" ]; then
   echo "$file_template" >> "$HS_SRC_DIR/$HS_FILE"
+  chmod +x "$HS_SRC_DIR/$HS_FILE"
 fi
 
 package_dot_yaml=$(cat <<EOF
-name:                scripts
+name:                main
 dependencies:
     - base
     - extra
@@ -69,7 +71,7 @@ dependencies:
     - process
 
 executables:
-  genassets:
+  mainexec:
     main:            $HS_FILE
     ghc-options:
     - -threaded
@@ -79,11 +81,11 @@ EOF
 )
 
 if [ ! -e "$HS_SRC_DIR/package.yaml" ]; then
-  echo "$file_template" >> "$HS_SRC_DIR/package.yaml"
+  echo "$package_dot_yaml" >> "$HS_SRC_DIR/package.yaml"
 fi
 
 stack_dot_yaml=$(cat <<EOF
-resolver: lts-14.27
+resolver: $RESOLVER
 packages:
 - .
 extra-deps: []
@@ -102,16 +104,8 @@ stack exec -- which hlint || stack install hlint
 stack exec -- which hoogle || stack install hoogle
 cd -
 
-# Install ghcide
-if [ ! -e "ghcide" ]; then
-  git clone https://github.com/digital-asset/ghcide.git
-  cd ghcide
-  stack install
-  cd -
-fi
-
 # Install visual stucio code
 if [ ! $(which code) ]; then
   sudo snap install code --classic
 fi
-code --install-extension DigitalAssetHoldingsLLC.ghcide
+code --install-extension haskell.haskell
