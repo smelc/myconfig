@@ -6,7 +6,7 @@ alias ag='ag --no-group' # so that vscode can jump from terminal search
 alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto_001_PtCJ7pwo --ignore-dir src/proto_002_PsYLVpVv --ignore-dir src/proto_003_PsddFKi3 --ignore-dir src/proto_004_Pt24m4xi --ignore-dir src/proto_005_PsBABY5H --ignore-dir src/proto_005_PsBabyM1 --ignore-dir src/proto_006_PsCARTHA'
 alias gg='git grep -n' # so that vscode can jump from terminal search
 alias hlfinish='notify-send "process" "finished"'
-alias bip='aplay --quiet $HOME/PERSONNEL/bipbip.wav'
+alias bip='if [[ "$?" == "0" ]]; then BIP="yes"; else BIP="no"; fi; aplay --quiet $HOME/PERSONNEL/bip$BIP.wav'
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitsign="git rebase --exec 'git commit --amend --no-edit -n -S' -i"
 alias mockup-client="./tezos-client --mode mockup --base-dir /tmp/mockup"
@@ -46,7 +46,7 @@ function ocamlbootstrap() {
   echo 'PATH_add bin' >> .envrc
   echo 'unset PS1' >> .envrc
 
-  opam install merlin utop || return 1
+  opam install dune merlin utop || return 1
 
   opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git || return 1
   opam install ocaml-lsp-server || return 1
