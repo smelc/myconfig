@@ -64,6 +64,11 @@ HERE=$(pwd)
 
 cd "$HOME"
 mkdir ".config/nvim"
+if [[ -e ".gitconfig" ]]; then
+  echo "$HOME/.gitconfig exists: not installing ${HERE}/.gitconfig"
+else
+  ln -s "${HERE}/.gitconfig" .
+fi
 cd ".config/nvim"
 ln -s "${HERE}/init.vim" .
 ln -s "${HERE}/coc_config_nvim.vim" .
