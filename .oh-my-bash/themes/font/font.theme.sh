@@ -21,12 +21,13 @@
 # 07:45:05 (venv) user@host ~ →
 #
 
-SCM_NONE_CHAR=''
-SCM_THEME_PROMPT_DIRTY="${red}*"
-SCM_THEME_PROMPT_CLEAN=""
-SCM_THEME_PROMPT_PREFIX="${green}|"
-SCM_THEME_PROMPT_SUFFIX="${green}|"
-SCM_GIT_SHOW_MINIMAL_INFO=true
+# All of this is unused:
+# SCM_NONE_CHAR=''
+# SCM_THEME_PROMPT_DIRTY="${red}*"
+# SCM_THEME_PROMPT_CLEAN=""
+# SCM_THEME_PROMPT_PREFIX="${green}|"
+# SCM_THEME_PROMPT_SUFFIX="${green}|"
+# SCM_GIT_SHOW_MINIMAL_INFO=true
 
 CLOCK_THEME_PROMPT_PREFIX=''
 CLOCK_THEME_PROMPT_SUFFIX=' '
@@ -81,10 +82,26 @@ function prompt_command() {
         direnv_marker=""
     fi
 
+    local changeset
+    if git rev-parse 2> /dev/null; then
+      local -r BRANCH=$(git branch --show-current)
+      if [[ -z "$BRANCH" ]]; then
+        changeset+="${red}"
+        changeset+="$(git rev-parse HEAD | cut -c1-8)"
+      else
+        changeset+="${yellow}"
+        changeset+="$BRANCH"
+      fi
+      changeset+=" ${normal}"
+    else
+      # Not in a git repo
+      changeset=""
+    fi
+
     # Append new history lines to history file
     history -a
 
-    PS1="$(clock_prompt)${virtualenv}${hostname}${direnv_marker}${nix_shell} ${bold_cyan}${current_dir} $(scm_prompt_char_info)${ret_status}${last_char} ${normal}"
+    PS1="$(clock_prompt)${virtualenv}${hostname}${direnv_marker}${nix_shell} ${bold_cyan}${current_dir} ${changeset}${ret_status}${last_char} ${normal}"
 }
 
 safe_append_prompt_command prompt_command
