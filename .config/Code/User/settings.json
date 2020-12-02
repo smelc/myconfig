@@ -11,6 +11,12 @@
   "files.exclude": {
     "**/_opam": true,
     "**/.stack-work": true,
+    "**/*.dyn_hi": true,
+    "**/*.dyn_o": true,
+    "**/*.hi": true,
+    "**/*.js_hi": true,
+    "**/*.js_o": true,
+    "**/*.o": true,
     "**/*.swp": true
   },
   "languageServerHaskell.hieVariant": "haskell-language-server",
