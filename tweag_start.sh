@@ -10,5 +10,5 @@ function open() {
   sudo mount "/dev/mapper/$2" "/media/$2"
 }
 
-open "/dev/nvme0n1p4" "crypt1"
+# open "/dev/nvme0n1p4" "crypt1"
 # open "/dev/nvme0n1p5" "crypt2"

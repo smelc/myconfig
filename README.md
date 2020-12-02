@@ -21,6 +21,14 @@ Launch repl using the repo's libraries:
 dune utop .
 ```
 
+Silence a warning, using the `dune` file:
+
+```
+(env
+  (dev
+    (flags (:standard -w -32 -w -27))))
+```
+
 # Tips and tricks
 
 * Generate strong password: `apg -a 1 -s -m 48`
@@ -72,4 +80,4 @@ dune utop .
 * Cherry pick commits A (**included**) to B: `git cherry-pick A^..B`
 * List commits from `foo` to `HEAD`: `git rev-list foo^..HEAD`
 * Copy file from commit `foo` to `HEAD`: `git checkout foo src/dir/file.ml`
-* Git push until commit foo: `git push <remote> <foo hash>:<branch>
+* Git push until commit foo: `git push <remote> <foo hash>:<branch>`

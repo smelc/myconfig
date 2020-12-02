@@ -7,10 +7,10 @@ alias ago='ag --ocaml --ignore-dir src/proto_000_Ps9mPmXa --ignore-dir src/proto
 alias gg='git grep -n' # so that vscode can jump from terminal search
 alias hlfinish='notify-send "process" "finished"'
 alias bip='if [[ "$?" == "0" ]]; then BIP="yes"; else BIP="no"; fi; aplay --quiet $HOME/PERSONNEL/bip$BIP.wav'
-alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gitsign="git rebase --exec 'git commit --amend --no-edit -n -S' -i"
+alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gsign="git rebase --exec 'git commit --amend --no-edit -n -S' -i"
 alias mockup-client="./tezos-client --mode mockup --base-dir /tmp/mockup"
-alias gitst="git status --untracked-files=no"
+alias gst="git status --untracked-files=no"
 
 function run() {
   echo "$@"
@@ -32,7 +32,7 @@ function gitbrco() {
 }
 
 function ocamlbootstrap() {
-  opam switch create . --deps-only 4.10.0 || return 1
+  opam switch create . --deps-only 4.09.1 || return 1
 
   eval $(opam env)
 
