@@ -81,3 +81,4 @@ Silence a warning, using the `dune` file:
 * List commits from `foo` to `HEAD`: `git rev-list foo^..HEAD`
 * Copy file from commit `foo` to `HEAD`: `git checkout foo src/dir/file.ml`
 * Git push until commit foo: `git push <remote> <foo hash>:<branch>`
+* Check if all commits of current branch satisfy some command: `git rebase -i $(gitfst.py)^ -x 'cmd'` (for Tezos, `cmd` is `./b.py --verify`)
