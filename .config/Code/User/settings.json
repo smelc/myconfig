@@ -32,5 +32,8 @@
   "haskell.trace.server": "messages",
   "diffEditor.renderSideBySide": true,
   "haskell.hlintOn": false,
-  "ocaml.trace.server": "messages"
+  "ocaml.trace.server": "messages",
+  "haskell.updateBehavior": "prompt",
+  "haskell.liquidOn": true,
+  "liveshare.publishWorkspaceInfo": true
 }

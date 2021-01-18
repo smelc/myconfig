@@ -29,6 +29,12 @@ Silence a warning, using the `dune` file:
     (flags (:standard -w -32 -w -27))))
 ```
 
+Generate dependencies graph:
+
+```
+dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.png && eog deps.png
+```
+
 # Tips and tricks
 
 * Generate strong password: `apg -a 1 -s -m 48`
@@ -82,3 +88,4 @@ Silence a warning, using the `dune` file:
 * Copy file from commit `foo` to `HEAD`: `git checkout foo src/dir/file.ml`
 * Git push until commit foo: `git push <remote> <foo hash>:<branch>`
 * Check if all commits of current branch satisfy some command: `git rebase -i $(gitfst.py)^ -x 'cmd'` (for Tezos, `cmd` is `./b.py --verify`)
+* Unstage all files: `git reset`
