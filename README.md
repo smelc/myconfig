@@ -2,6 +2,13 @@
 
 Personal configuration files such as .vimrc
 
+# neovim
+
+Install a plugin without quitting vim:
+
+* `:source init.vim`
+* `:PlugInstall`
+
 # opam
 
 Create installation local to directory: `opam switch create . --deps-only 4.10.0`
@@ -89,3 +96,12 @@ dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.pn
 * Git push until commit foo: `git push <remote> <foo hash>:<branch>`
 * Check if all commits of current branch satisfy some command: `git rebase -i $(gitfst.py)^ -x 'cmd'` (for Tezos, `cmd` is `./b.py --verify`)
 * Unstage all files: `git reset`
+* Reset all modifications, return to pristine `HEAD`: `git reset --hard`
+
+# @polux recommendations
+
+Skeptics' Guide to the Universe, Skeptics with a K, Sawbones, Darknet diaries, Compositional, Designer notes (interviews de designers de JV), numberphile, code poscat (c'est mort maintenent mais le back catalogue est bien), the haskell cast (mort maintenant pareil)
+
+# Haskell
+
+Bootstrap: https://www.haskell.org/ghcup/

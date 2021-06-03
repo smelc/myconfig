@@ -1,6 +1,6 @@
-nmap <S-Right> :tabn<CR>                                                                                                                                                                                    
-nmap <S-Left> :tabp<CR>                                                         
-nmap <S-l> :tabn<CR>                                                            
+nmap <S-Right> :tabn<CR>
+nmap <S-Left> :tabp<CR>
+nmap <S-l> :tabn<CR>
 nmap <S-h> :tabp<CR>
 
 " So that "+p works
@@ -28,7 +28,7 @@ call pathogen#helptags()
 
 " Call the plugin ~/.vim/bundle/tagbar
 " cd .vim/bundle; git clone https://github.com/majutsushi/tagbar
-nmap <F8> :TagbarToggle<CR> 
+nmap <F8> :TagbarToggle<CR>
 " Update position in outline every 0.5s (default is 4)
 set updatetime=500
 " Sort by name

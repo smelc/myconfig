@@ -11,6 +11,16 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias gsign="git rebase --exec 'git commit --amend --no-edit -n -S' -i"
 alias mockup-client="./tezos-client --mode mockup --base-dir /tmp/mockup"
 alias gst="git status --untracked-files=no"
+alias nsr="nix-shell --run"
+alias tezt="dune exec tezt/tests/main.exe --"
+alias tezos-bench="$HOME/dev/tezos-bench/tezt/main.py"
+
+function dbw() {
+  [[ -n "$1" ]] || { echo "dbw needs the name of the library to build, like lib_p2p"; }
+  local -r built="@src/$1/check"
+  echo "Building @src/$1/check"
+  dune build "$built" --watch --terminal-persistence=clear-on-rebuild
+}
 
 function run() {
   echo "$@"
@@ -32,7 +42,7 @@ function gitbrco() {
 }
 
 function ocamlbootstrap() {
-  opam switch create . --deps-only 4.09.1 || return 1
+  opam switch create . --deps-only 4.10.2 || return 1
 
   eval $(opam env)
 
@@ -67,6 +77,13 @@ function gitmine() {
       git blame -f -n "$FILE" | grep "Clément\|clément\|clement\|Hurlin\|hurlin" | grep "$1"
     fi  # else file has been deleted in a commit between HEAD~16 and HEAD~1
   done
+}
+
+function untezt() {
+  [[ -n "$1" ]] || { echo "untezt expects an argument"; return 1;}
+  local -r DEST="/tmp/tmp_untezt"
+  rm -Rf "$DEST"
+  sed 's/^\[.*\] \[.*\]//g' "$1" > "$DEST"; mv "$DEST" -f "$1"
 }
 
 export EDITOR="nvim"

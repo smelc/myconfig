@@ -24,16 +24,30 @@
     "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
   },
   "shellcheck.disableVersionCheck": true,
-  "workbench.activityBar.visible": true,
-  "window.zoomLevel": 0,
   "[ocaml]": {
     "editor.defaultFormatter": "ocamllabs.ocaml-platform"
   },
   "haskell.trace.server": "messages",
   "diffEditor.renderSideBySide": true,
-  "haskell.hlintOn": false,
   "ocaml.trace.server": "messages",
   "haskell.updateBehavior": "prompt",
   "haskell.liquidOn": true,
-  "liveshare.publishWorkspaceInfo": true
+  "liveshare.publishWorkspaceInfo": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.configuration.checkProjectSettingsExclusions": false,
+  "python.languageServer": "Pylance",
+  "python.showStartPage": false,
+  "liveshare.authenticationProvider": "GitHub",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "haskell.hlintOn": false,
+  "workbench.colorTheme": "One Dark Pro",
+  "haskell.plugin.hlint.diagnosticsOn": false,
+  "editor.renderIndentGuides": false,
 }

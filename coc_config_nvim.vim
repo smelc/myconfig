@@ -140,3 +140,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" https://devpoga.org/post/2020-03-17_ocaml_quickstart/
+" https://github.com/neoclide/coc.nvim/wiki/Language-servers#ocaml-and-reasonml
