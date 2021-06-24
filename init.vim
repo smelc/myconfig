@@ -8,8 +8,8 @@ Plug 'dracula/vim', { 'as': 'dracula' } " dracula theme
 Plug 'joshdick/onedark.vim' " onedark
 
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " https://github.com/neoclide/coc.nvim <- doesn't work for OCaml
-" Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'dense-analysis/ale'  " for shellcheck integration
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'vim-airline/vim-airline'

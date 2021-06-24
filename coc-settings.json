@@ -1,7 +1,7 @@
 {
   "languageserver": {
     "haskell": {
-      "command": "/home/churlin/.config/Code/User/globalStorage/haskell.haskell/haskell-language-server-wrapper-0.5.1-linux",
+      "command": "haskell-language-server-wrapper",
       "args": [
         "--lsp"
       ],
@@ -21,7 +21,7 @@
       ],
       "settings": {
         "languageServerHaskell": {
-          "hlintOn": true,
+          "hlintOn": false,
           "maxNumberOfProblems": 50,
           "completionSnippetsOn": true
         }
