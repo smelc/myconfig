@@ -9,6 +9,11 @@ Install a plugin without quitting vim:
 * `:source init.vim`
 * `:PlugInstall`
 
+* Jump to coc's floating window (works if window is not split): `Ctrl-w W`
+* Create new tab from current window: `Ctrl-w T`
+
+Plugins are installed in `$HOME/.local/share/nvim/plugged/`
+
 # opam
 
 Create installation local to directory: `opam switch create . --deps-only 4.10.0`

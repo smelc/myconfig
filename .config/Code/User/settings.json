@@ -40,7 +40,7 @@
   "python.showStartPage": false,
   "liveshare.authenticationProvider": "GitHub",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "haskell.hlintOn": false,
@@ -53,5 +53,8 @@
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "window.zoomLevel": 1,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
 }

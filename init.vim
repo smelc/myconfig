@@ -8,7 +8,7 @@ Plug 'dracula/vim', { 'as': 'dracula' } " dracula theme
 Plug 'joshdick/onedark.vim' " onedark
 
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'v0.0.80' }
 " Plug 'dense-analysis/ale'  " for shellcheck integration
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
@@ -19,17 +19,22 @@ Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'monkoose/fzf-hoogle.vim'
 Plug 'tpope/vim-commentary'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
-
-" for OCaml, following https://www.rockyourcode.com/setup-ocaml-with-neovim/
-" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', } " https://github.com/autozimu/LanguageClient-neovim
-" Plug 'ajh17/VimCompletesMe'
 
 call plug#end()
 
 nmap <S-l> :tabn<CR>
 nmap <S-h> :tabp<CR>
+
+" https://github.com/vim-airline/vim-airline/issues/1845
+let g:airline_section_a = ''
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Ignore files in .gitignore at Ctrl-P, https://github.com/ctrlpvim/ctrlp.vim#basic-options
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -47,8 +52,6 @@ xmap gs <plug>(GrepperOperator)
 
 " Always display line numbers
 set number
-" Show column number in status bar
-set statusline+=,\ col:%c
 
 " Insert spaces instead of tabs
 set expandtab
@@ -67,15 +70,5 @@ nnoremap <Leader>nf :Neoformat<CR>
 " Highlight trailing spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-" https://www.rockyourcode.com/setup-ocaml-with-neovim/
-" set hidden
-" let g:LanguageClient_serverCommands = { 'ocaml': ['ocamllsp'], }
-" nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-" /https://www.rockyourcode.com/setup-ocaml-with-neovim/
 
 runtime coc_config_nvim.vim
