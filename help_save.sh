@@ -5,7 +5,7 @@ set -eu
 declare -r FILENAME=$(date "+%y%m%d_help")
 declare -r FILEPATH="/tmp/${FILENAME}.tgz"
 
-(cd "$HOME/.password-store" && tar -czf "$FILEPATH" "smelc")
+(cd "$HOME/.password-store" && tar -czf "$FILEPATH" $(ls .))
 
 scp -P 58241 "$FILEPATH" clem@schplaf.org:~/helps/.
 echo "saving@schplaf: ✓"
