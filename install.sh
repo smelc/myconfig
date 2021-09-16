@@ -39,9 +39,6 @@ if [[ ! -e "pass-git-helper" ]]; then
 fi
 popd
 
-# for smelc.github.io
-gem install jekyll bundler github-pages
-
 #########################################
 # nodejs (required by neovim's coc.vim) #
 #########################################
@@ -82,20 +79,6 @@ if [[ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-#############
-# spacemacs #
-#############
-
-# https://github.com/ocaml/merlin/wiki/spacemacs-from-scratch
-if [[ ! -e "$HOME/.fonts/adobe-fonts/source-code-pro" ]]; then
-  git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git "$HOME/.fonts/adobe-fonts/source-code-pro"
-  fc-cache -f -v
-fi
-
-if [[ ! $(which emacs) ]]; then
-  sudo apt install emacs
-fi
-
 #########
 # ocaml #
 #########
@@ -111,3 +94,20 @@ fi
 
 # for ocaml + spacemacs: https://github.com/ocaml/merlin/wiki/spacemacs-from-scratch#enable-ocaml
 # also: https://develop.spacemacs.org/layers/+lang/ocaml/README.html#using-merlin-for-error-reporting
+
+#########
+# kitty #
+#########
+
+apt_install_if_missing fonts-firacode
+
+if [[ ! $(which kitty) ]]; then
+  # https://sw.kovidgoyal.net/kitty/binary/
+  curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  cd /usr/local/bin
+  sudo ln -s ~churlin/.local/kitty.app/bin/kitty . || { echo "ln -s .. kitty .. failed"; exit 1; }
+  cd -
+  cd $HOME/.config/kitty/
+  ln -s "$HERE/kitty.conf" . || { echo "ln -s .. kitty.conf failed"; exit 1; }
+  cd -
+fi

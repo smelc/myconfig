@@ -14,6 +14,7 @@ alias gst="git status --untracked-files=no"
 alias nsr="nix-shell --run"
 alias tezt="dune exec tezt/tests/main.exe --"
 alias tezos-bench="$HOME/dev/tezos-bench/tezt/main.py"
+alias lg="lazygit"
 
 function dbw() {
   [[ -n "$1" ]] || { echo "dbw needs the name of the library to build, like lib_p2p"; }
