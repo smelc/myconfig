@@ -3,24 +3,22 @@ call plug#begin(stdpath('data') . '/plugged')
 " Color themes
 Plug 'fcpg/vim-farout' " farout theme as visible in http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/
 Plug 'dracula/vim', { 'as': 'dracula' } " dracula theme
-" Plug 'tomasr/molokai' " molokai
-" Plug 'changyuheng/color-scheme-holokai-for-vim' " holokai
 Plug 'joshdick/onedark.vim' " onedark
 
-Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-Plug 'neoclide/coc.nvim', {'branch': 'v0.0.80' }
-" Plug 'dense-analysis/ale'  " for shellcheck integration
+Plug 'neoclide/coc.nvim', {'branch': 'release' }
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'vim-airline/vim-airline'
 Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
 Plug 'sbdchd/neoformat' " :NeoFormat
-Plug 'mhinz/vim-grepper'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'monkoose/fzf-hoogle.vim'
+Plug 'mhinz/vim-grepper' " Delete? (replaced by telescope?)
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}  " Delete? (replaced by telescope)
+" Plug 'monkoose/fzf-hoogle.vim'. Delete soon.
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim' " Delete? (replaced by telescope)
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -35,9 +33,7 @@ let g:airline_section_y = ''
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Ignore files in .gitignore at Ctrl-P, https://github.com/ctrlpvim/ctrlp.vim#basic-options
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-nmap <F8> :TagbarToggle<CR>
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard | grep -v \.html$']
 
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
@@ -46,10 +42,17 @@ nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 
 " https://github.com/mhinz/vim-grepper/wiki/example-configurations-and-mappings
+" \g, \G
 nnoremap <leader>g :Grepper -tool git<cr>
 nnoremap <leader>G :Grepper -tool ag<cr>
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
+" nmap gs <plug>(GrepperOperator)
+" xmap gs <plug>(GrepperOperator)
+
+" https://github.com/nvim-telescope/telescope.nvim, \ff, \fg, \fb, \fh
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Always display line numbers
 set number

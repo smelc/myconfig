@@ -57,4 +57,5 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
+  "bracket-pair-colorizer-2.depreciation-notice": false,
 }
