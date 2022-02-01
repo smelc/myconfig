@@ -33,4 +33,15 @@
       "filetypes": ["ocaml", "reason"]
     }
   },
+  "diagnostic.enableSign": true,
+  "diagnostic.enableHighlightLineNumber": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.virtualText": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.autoRefresh": true,
+  "diagnostic.level": "warning",
+  "diagnostic.virtualTextCurrentLineOnly": false
 }

@@ -12,10 +12,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
 Plug 'sbdchd/neoformat' " :NeoFormat
 Plug 'mhinz/vim-grepper' " Delete? (replaced by telescope?)
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}  " Delete? (replaced by telescope)
-" Plug 'monkoose/fzf-hoogle.vim'. Delete soon.
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim' " Delete? (replaced by telescope)
+
+" Workspace search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf' " use FZF for interacting with CoC. Needs bat:
+" https://github.com/sharkdp/bat for colorful previews
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
