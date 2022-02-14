@@ -5,6 +5,7 @@
 	required = true
 [alias]
 	root = rev-parse --show-toplevel
+	please = push --force-with-lease
 [merge]
 	tool = meld
 [absorb]
