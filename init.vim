@@ -5,15 +5,15 @@ Plug 'fcpg/vim-farout' " farout theme as visible in http://marco-lopes.com/artic
 Plug 'dracula/vim', { 'as': 'dracula' } " dracula theme
 Plug 'joshdick/onedark.vim' " onedark
 
-Plug 'neoclide/coc.nvim', {'branch': 'release' }
+Plug 'neoclide/coc.nvim', {'branch': 'release' }  " :CocInstall coc-jedi for basic python lsp
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'vim-airline/vim-airline'
 Plug 'LnL7/vim-nix' " https://github.com/LnL7/vim-nix
 Plug 'sbdchd/neoformat' " :NeoFormat
-Plug 'mhinz/vim-grepper' " Delete? (replaced by telescope?)
+Plug 'mhinz/vim-grepper'
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim' " Delete? (replaced by telescope)
+Plug 'ctrlpvim/ctrlp.vim' " Ctrl-p
 
 " Workspace search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -127,3 +127,6 @@ function! s:WingmanUseCtor(type)
   call CocAction('codeAction', a:type, ['refactor.wingman.useConstructor'])
   call <SID>GotoNextHole()
 endfunction
+
+" Do not autoreload files on change, ask for confirmation instead
+set noautoread
