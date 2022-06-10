@@ -85,6 +85,8 @@ function untezt() {
   sed 's/^\[.*\] \[.*\]//g' "$1" > "$DEST"; mv "$DEST" -f "$1"
 }
 
+export COPYBARA_HOME="$HOME/tools/copybara"
+export COPYBARA_BIN="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara"
 export EDITOR="nvim"
 
 export PATH="$PATH:$HOME/.fzf/bin"

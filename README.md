@@ -107,6 +107,22 @@ dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.pn
 
 Skeptics' Guide to the Universe, Skeptics with a K, Sawbones, Darknet diaries, Compositional, Designer notes (interviews de designers de JV), numberphile, code poscat (c'est mort maintenent mais le back catalogue est bien), the haskell cast (mort maintenant pareil)
 
-# Haskell
+# GitHub
 
-Bootstrap: https://www.haskell.org/ghcup/
+- Check workflow syntax: [actionlint](https://golangexample.com/a-static-checker-for-github-actions-workflow-files/)
+
+# #linux
+
+- `/mode -n`
+
+# nix
+
+- Search for a package: `nix-env -qaP --description '.*bazel.*' | cat`
+- Search in some snapshot: https://search.nixos.org/packages?channel=21.11
+
+# Docker
+
+- [enter docker image](https://www.freecodecamp.org/news/docker-exec-how-to-run-a-command-inside-a-docker-image-or-container/):
+  ```
+  docker run -it olivr/copybara:latest bash
+  ```
