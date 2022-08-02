@@ -5,7 +5,7 @@ Plug 'fcpg/vim-farout' " farout theme as visible in http://marco-lopes.com/artic
 Plug 'dracula/vim', { 'as': 'dracula' } " dracula theme
 Plug 'joshdick/onedark.vim' " onedark
 
-Plug 'neoclide/coc.nvim', {'branch': 'release' }  " :CocInstall coc-jedi for basic python lsp
+Plug 'neoclide/coc.nvim', {'branch': 'release' }  " :CocInstall coc-jedi for basic python lsp, or coc-pyright
 Plug 'tpope/vim-fugitive' " https://github.com/tpope/vim-fugitive
 Plug 'airblade/vim-gitgutter' " https://github.com/airblade/vim-gitgutter
 Plug 'vim-airline/vim-airline'

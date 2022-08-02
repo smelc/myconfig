@@ -102,6 +102,7 @@ dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.pn
 * Check if all commits of current branch satisfy some command: `git rebase -i $(gitfst.py)^ -x 'cmd'` (for Tezos, `cmd` is `./b.py --verify`)
 * Unstage all files: `git reset`
 * Reset all modifications, return to pristine `HEAD`: `git reset --hard`
+* Track remote branch: `git checkout --track origin/copybara@monorepo-ci-copy-2`
 
 # @polux recommendations
 

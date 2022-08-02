@@ -86,7 +86,8 @@ function untezt() {
 }
 
 export COPYBARA_HOME="$HOME/tools/copybara"
-export COPYBARA_BIN="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara"
+# export COPYBARA_BIN="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara"
+export COPYBARA_DEPLOY_JAR="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara_deploy.jar"
 export EDITOR="nvim"
 
 export PATH="$PATH:$HOME/.fzf/bin"
