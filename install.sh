@@ -4,60 +4,42 @@
 
 set +eux
 
+HERE=$(pwd)
+
 function apt_install_if_missing() {
   local -r last_line=$(dpkg -l "$1" | tail -n 1)
   if [[ "$last_line" == "ii"* ]]; then return 0; fi
   sudo apt install "$1"
 }
 
-apt_install_if_missing exuberant-ctags  # For https://github.com/majutsushi/tagbar
-
 [[ ! $(which ag) ]] && sudo apt install silversearcher-ag
 
-apt_install_if_missing jq
-
-# fzf
-if [[ ! $(which zfz) ]]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fsf/install
-fi
+apt_install_if_missing autojump
+apt_install_if_missing chrome-gnome-shell
+apt_install_if_missing direnv
+apt_install_if_missing entr
+apt_install_if_missing fzf
+apt_install_if_missing gnome-shell-extension-prefs
+apt_install_if_missing gnome-tweaks
+apt_install_if_missing nodejs # required by neovim's coc.vim
+apt_install_if_missing meld
 
 [[ -e "$HOME/tools" ]] || mkdir "$HOME/tools"
 
-# pass-git-helper
-pushd "$HOME/tools"
-if [[ ! -e "pass-git-helper" ]]; then
-  git clone https://github.com/languitar/pass-git-helper
-  pushd "pass-git-helper"
-  apt_install_if_missing python3-setuptools
-  python3 setup.py install --user
-  [[ -e "git-pass-mapping.init" ]] || exit 1
-  pushd "$HOME/.config/pass-git-helper"
-  ln -s "$HOME/tools/git-pass-helper/git-pass-mapping.ini" .
-  popd
-  popd
-fi
+# Install [pass-git-helper](https://github.com/languitar/pass-git-helper#installation)
+apt_install_if_missing pass-git-helper
+
+pushd "$HOME/.config/pass-git-helper"
+ln -s "$HERE/git-pass-mapping.ini" .
 popd
-
-#########################################
-# nodejs (required by neovim's coc.vim) #
-#########################################
-
-apt_install_if_missing nodejs
-# yarn must be installed too, look for instructions online
 
 ########
 # nvim #
 ########
 
-if [[ ! $(which nvim) ]]; then
-  rm -Rf nvim.appimage
-  wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-  chmod u+x nvim.appimage
-  sudo mv nvim.appimage /usr/local/bin/nvim
-fi
+# Install [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-download)
 
-HERE=$(pwd)
+# Install the [plug manager](https://github.com/junegunn/vim-plug#neovim)
 
 cd "$HOME"
 mkdir ".config/nvim"
@@ -73,11 +55,8 @@ ln -s "${HERE}/coc_config_nvim.vim" .
 ln -s "${HERE}/coc-settings.json" .
 cd "$HERE"
 
-# Install vim-plug
-if [[ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]]; then
-  curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+# Install https://github.com/sharkdp/bat
+apt_install_if_missing bat
 
 #########
 # ocaml #
@@ -92,9 +71,6 @@ if [[ ! $(which opam) ]]; then
   # opam install merlin utop ocp-indent ounit2
 fi
 
-# for ocaml + spacemacs: https://github.com/ocaml/merlin/wiki/spacemacs-from-scratch#enable-ocaml
-# also: https://develop.spacemacs.org/layers/+lang/ocaml/README.html#using-merlin-for-error-reporting
-
 #########
 # kitty #
 #########
@@ -102,7 +78,7 @@ fi
 apt_install_if_missing fonts-firacode
 
 if [[ ! $(which kitty) ]]; then
-  # https://sw.kovidgoyal.net/kitty/binary/
+  # Install [kitty](https://sw.kovidgoyal.net/kitty/binary/)
   curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
   cd /usr/local/bin
   sudo ln -s ~churlin/.local/kitty.app/bin/kitty . || { echo "ln -s .. kitty .. failed"; exit 1; }

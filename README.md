@@ -53,9 +53,12 @@ dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.pn
 * List plain [pass](https://www.passwordstore.org/)words:
 
   ```
-  for f in `ls $HOME/.password-store`
+  for d in lili kaiko smelc tweag
   do
-  echo -n "${f%.*} "; gpg --decrypt "$HOME/.password-store/$f" 2> /dev/null | tail -n 3
+    for f in `ls $HOME/$d/.password-store`
+    do
+    echo -n "${f%.*} "; gpg --decrypt "$HOME/.password-store/$d/$f" 2> /dev/null | tail -n 3
+    done
   done
   ```
 * Inspect disk space consumption: `ncdu`
