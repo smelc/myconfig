@@ -2,7 +2,7 @@
 # Script sourced from .bashrc
 
 alias ag='ag --no-group' # so that vscode can jump from terminal search
-alias gg='git grep -n' # so that vscode can jump from terminal search
+alias gg='git --no-pager grep -n' # so that vscode can jump from terminal search
 alias hlfinish='notify-send "process" "finished"'
 alias bip='if [[ "$?" == "0" ]]; then BIP="yes"; ICON="🎉"; else BIP="no"; ICON="😿"; fi; notify-send "$ICON"; aplay --quiet $HOME/PERSONNEL/bip$BIP.wav'
 alias gst="git status --untracked-files=no"
@@ -30,6 +30,8 @@ function gitbrco() {
 }
 
 export PATH="$PATH:$HOME/.local/bin"  # for stack
+# export PATH="$PATH:$HOME/.ghcup/bin/ghcup"
+# export PATH="$PATH:$HOME/.ghcup/bin/cabal"
 
 export COPYBARA_HOME="$HOME/tools/copybara"
 # export COPYBARA_BIN="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara"

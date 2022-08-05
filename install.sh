@@ -87,3 +87,12 @@ if [[ ! $(which kitty) ]]; then
   ln -s "$HERE/kitty.conf" . || { echo "ln -s .. kitty.conf failed"; exit 1; }
   cd -
 fi
+
+##########
+# vscode #
+##########
+
+pushd "/home/churlin/.config/Code/User"
+ln -s $HERE/keybindings.json .
+ln -s $HERE/settings.json .
+popd
