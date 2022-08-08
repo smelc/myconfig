@@ -14,6 +14,11 @@ Install a plugin without quitting vim:
 
 Plugins are installed in `$HOME/.local/share/nvim/plugged/`
 
+# haskell
+
+- Isolated GHC installs on Ubuntu:
+  https://www.haskell.org/ghcup/guide/#isolated-installs
+
 # opam
 
 Create installation local to directory: `opam switch create . --deps-only 4.10.0`

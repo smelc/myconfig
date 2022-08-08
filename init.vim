@@ -23,6 +23,8 @@ Plug 'antoinemadec/coc-fzf' " use FZF for interacting with CoC. Needs bat:
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 call plug#end()
 

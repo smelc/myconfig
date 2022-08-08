@@ -4,7 +4,7 @@
 alias ag='ag --no-group' # so that vscode can jump from terminal search
 alias gg='git --no-pager grep -n' # so that vscode can jump from terminal search
 alias hlfinish='notify-send "process" "finished"'
-alias bip='if [[ "$?" == "0" ]]; then BIP="yes"; ICON="🎉"; else BIP="no"; ICON="😿"; fi; notify-send "$ICON"; aplay --quiet $HOME/PERSONNEL/bip$BIP.wav'
+alias bip='if [[ "$?" == "0" ]]; then ICON="🎉"; else ICON="😿"; fi; notify-send "$ICON"'
 alias gst="git status --untracked-files=no"
 alias lg="lazygit"
 alias apg="apg -m 10 -M SNCL"
@@ -29,9 +29,12 @@ function gitbrco() {
   git checkout "$1"
 }
 
-export PATH="$PATH:$HOME/.local/bin"  # for stack
-# export PATH="$PATH:$HOME/.ghcup/bin/ghcup"
-# export PATH="$PATH:$HOME/.ghcup/bin/cabal"
+export PATH="$PATH:$HOME/.local/bin"  # for stack-built things
+# export PATH="$PATH:$HOME/.ghcup/bin", no I use isolated installs
+# https://www.haskell.org/ghcup/guide/#isolated-installs
+
+# For rust, prefer in .envrc
+# . "$HOME/.cargo/env"
 
 export COPYBARA_HOME="$HOME/tools/copybara"
 # export COPYBARA_BIN="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara"

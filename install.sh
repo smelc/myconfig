@@ -18,11 +18,13 @@ apt_install_if_missing autojump
 apt_install_if_missing chrome-gnome-shell
 apt_install_if_missing direnv
 apt_install_if_missing entr
+apt_install_if_missing fd-find # for nvim's telescope
 apt_install_if_missing fzf
 apt_install_if_missing gnome-shell-extension-prefs
 apt_install_if_missing gnome-tweaks
 apt_install_if_missing nodejs # required by neovim's coc.vim
 apt_install_if_missing meld
+apt_install_if_missing ripgrep # for nvim's telescope
 
 [[ -e "$HOME/tools" ]] || mkdir "$HOME/tools"
 
@@ -32,6 +34,12 @@ apt_install_if_missing pass-git-helper
 pushd "$HOME/.config/pass-git-helper"
 ln -s "$HERE/git-pass-mapping.ini" .
 popd
+
+# Passphrase caching: one week
+# See https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session
+echo "# Ask passphrases every week" >> .gnupg/gpg-agent.conf
+echo "default-cache-ttl 604800" >> .gnupg/gpg-agent.conf
+echo "max-cache-ttl 604800" >> .gnupg/gpg-agent.conf
 
 ########
 # nvim #
