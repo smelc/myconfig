@@ -9,6 +9,7 @@ alias gst="git status --untracked-files=no"
 alias lg="lazygit"
 alias apg="apg -m 10 -M SNCL"
 alias nix="nix --extra-experimental-features nix-command --extra-experimental-features flakes"
+alias tezt='dune exec tezt/tests/main.exe --'
 
 function run() {
   echo "$@"
@@ -29,6 +30,8 @@ function gitbrco() {
   git checkout "$1"
 }
 
+export PATH="$PATH:$HOME/PERSONNEL/exdown"
+
 export PATH="$PATH:$HOME/.local/bin"  # for stack-built things
 # export PATH="$PATH:$HOME/.ghcup/bin", no I use isolated installs
 # https://www.haskell.org/ghcup/guide/#isolated-installs
@@ -38,11 +41,13 @@ export PATH="$PATH:$HOME/.local/bin"  # for stack-built things
 
 export COPYBARA_HOME="$HOME/tools/copybara"
 # export COPYBARA_BIN="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara"
-export COPYBARA_DEPLOY_JAR="$COPYBARA_HOME/bazel-bin/java/com/google/copybara/copybara_deploy.jar"
+export COPYBARA_DEPLOY_JAR="$HOME/tools/copybara_deploy.jar"
 export EDITOR="nvim"
 
+# https://github.com/pyenv/pyenv#installation
+export PYENV_ROOT="$HOME/.pyenv"
 export PATH="~/.pyenv/bin:$PATH"
-# eval "$(pyenv init -)"
+eval "$(pyenv init -)"
 
 source $HOME/.fzf.bash
 

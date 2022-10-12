@@ -96,6 +96,19 @@ if [[ ! $(which kitty) ]]; then
   cd -
 fi
 
+# Make it the default terminal in gnome:
+
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which kitty) 50
+sudo update-alternatives --config x-terminal-emulator
+
+######################
+# Enable hibernation #
+######################
+
+# https://www.lorenzobettini.it/2020/07/enabling-hibernation-on-ubuntu-20-04/
+# https://www.linuxtechi.com/extend-swap-space-using-swap-file-in-linux/
+# https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/ <- best
+
 ##########
 # vscode #
 ##########

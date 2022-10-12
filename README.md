@@ -119,6 +119,7 @@ Skeptics' Guide to the Universe, Skeptics with a K, Sawbones, Darknet diaries, C
 # GitHub
 
 - Check workflow syntax: [actionlint](https://golangexample.com/a-static-checker-for-github-actions-workflow-files/)
+- `nix run nixpkgs#gh -- pr list -s all -S 'org:kaiko-eng commenter:smelc updated:>=2022-09-12 sort:updated' --json state,number,title,url,author --jq '.[] | "[\(.state)] [#\(.number)](\(.url)) \"\(.title)\" by @\(.author.login)"'`
 
 # #linux
 

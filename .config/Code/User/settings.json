@@ -46,7 +46,6 @@
   "haskell.hlintOn": false,
   "workbench.colorTheme": "One Dark Pro",
   "haskell.plugin.hlint.diagnosticsOn": false,
-  "editor.renderIndentGuides": false,
   "editor.tabSize": 8,
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
@@ -63,4 +62,8 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.typeCheckingMode": "basic",
+  "editor.guides.indentation": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
 }

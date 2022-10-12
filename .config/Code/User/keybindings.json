@@ -23,5 +23,15 @@
   {
     "key": "ctrl+f12",
     "command": "editor.action.goToTypeDefinition"
+  },
+  {
+    "key": "ctrl+alt+.",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+.",
+    "command": "-editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
   }
 ]
