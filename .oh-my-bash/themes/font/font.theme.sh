@@ -75,10 +75,17 @@ function _omb_theme_PROMPT_COMMAND() {
       fi
     fi
 
+    if [[ -n "$IN_NIX_SHELL" ]]
+    then
+      nix_shell="${bold_red}${IN_NIX_SHELL}${normal} "
+    else
+      nix_shell=""
+    fi
+
     # Append new history lines to history file
     history -a
 
-    PS1="$(clock_prompt)$python_venv${hostname}${_omb_prompt_bold_teal}${omb_location}$scm_prompt_char_info${ret_status} → ${_omb_prompt_normal}"
+    PS1="$(clock_prompt)$nix_shell$python_venv${hostname}${_omb_prompt_bold_teal}${omb_location}$scm_prompt_char_info${ret_status} → ${_omb_prompt_normal}"
 }
 
 _omb_util_add_prompt_command _omb_theme_PROMPT_COMMAND
