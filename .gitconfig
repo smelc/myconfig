@@ -12,3 +12,8 @@
         maxStack = 128
 [diff]
 	colormoved = default
+[credential]
+	helper = !pass-git-helper $@
+[user]
+	email = clement.hurlin@tweag.io
+	name = Clément Hurlin

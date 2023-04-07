@@ -31,7 +31,9 @@ apt_install_if_missing ripgrep # for nvim's telescope
 # Install [pass-git-helper](https://github.com/languitar/pass-git-helper#installation)
 apt_install_if_missing pass-git-helper
 
-pushd "$HOME/.config/pass-git-helper"
+pushd "$HOME/.config"
+[[ -e "pass-git-helper" ]] || mkdir "pass-git-helper"
+cd "pass-git-helper"
 ln -s "$HERE/git-pass-mapping.ini" .
 popd
 
