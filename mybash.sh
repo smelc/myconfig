@@ -6,6 +6,7 @@ alias gg='git --no-pager grep -n' # so that vscode can jump from terminal search
 alias gst="git status --untracked-files=no"
 alias lg="lazygit"
 alias apg="apg -m 10 -M SNCL"
+alias cdgr='cd $(git rev-parse --show-toplevel)'
 
 function run() {
   echo "$@"
@@ -27,6 +28,7 @@ function gitbrco() {
 }
 
 export PATH="$PATH:$HOME/PERSONNEL/exdown"
+export PATH="/usr/local/lib/nodejs/node-v18.15.0-linux-x64/bin:$PATH"
 
 export EDITOR="nvim"
 
