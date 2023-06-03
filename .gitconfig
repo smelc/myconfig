@@ -17,3 +17,5 @@
 [user]
 	email = clement.hurlin@tweag.io
 	name = Clément Hurlin
+[init]
+	defaultBranch = main
