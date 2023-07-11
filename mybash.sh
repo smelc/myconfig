@@ -32,6 +32,10 @@ export PATH="/usr/local/lib/nodejs/node-v18.15.0-linux-x64/bin:$PATH"
 
 export EDITOR="nvim"
 
+# Turn oh-my-bash auto update prompt OFF
+# https://github.com/ohmybash/oh-my-bash#getting-updates
+export DISABLE_UPDATE_PROMPT="true"
+
 # source $HOME/.fzf.bash
 
 # Autojump: https://github.com/wting/autojump#automatic
@@ -39,3 +43,14 @@ export EDITOR="nvim"
 
 # https://direnv.net/docs/hook.html (from https://github.com/target/lorri)
 # eval "$(direnv hook bash)"
+
+source $HOME/bash_completion.d/gradle-completion.bash
+
+# https://sdkman.io/
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+complete -C /usr/local/bin/terraform terraform
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

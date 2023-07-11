@@ -60,10 +60,13 @@
   "haskell.plugin.hlint.codeActionsOn": false,
   "python.formatting.provider": "black",
   "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.variableTypes": true,
   "python.analysis.typeCheckingMode": "basic",
   "editor.guides.indentation": false,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true
   },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "redhat.telemetry.enabled": false,
 }
