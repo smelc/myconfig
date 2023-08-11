@@ -14,13 +14,23 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "mfussenegger/nvim-jdtls",
     "joshdick/onedark.vim", -- onedark
+    "tpope/vim-commentary", -- gc to comment a line
     "vim-airline/vim-airline"
 })
 
 vim.cmd.colorscheme("onedark")
 
-vim.keymap.set('n', '<Shift>-l', "<cmd>tabn<cr>")
-vim.keymap.set('n', '<Shift>-h', "<cmd>tabp<cr>")
+-- https://neovim.io/doc/user/lua-guide.html#lua-guide-using-Lua
+
+-- Change leader key to space
+vim.g.mapleader = " "
+
+-- https://neovim.io/doc/user/api.html#nvim_set_keymap()
+vim.api.nvim_set_keymap('n', '<S-l>', "<cmd>:tabn<CR>", {})
+vim.api.nvim_set_keymap('n', '<S-h>', "<cmd>:tabp<CR>", {})
+
+-- Reload config file
+vim.api.nvim_set_keymap('n', '<Leader><Leader>', ":source $MYVIMRC<CR>", {})
 
 -- Do not autoreload files on change, ask for confirmation instead
 vim.opt.autoread = false

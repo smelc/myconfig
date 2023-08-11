@@ -31,6 +31,8 @@ export PATH="$PATH:$HOME/PERSONNEL/exdown"
 export PATH="/usr/local/lib/nodejs/node-v18.15.0-linux-x64/bin:$PATH"
 
 export EDITOR="nvim"
+# https://dev.to/reobin/reload-init-vim-without-restarting-neovim-1h82
+export MYVIMRC="$HOME/PERSONNEL/myconfig/init.lua"
 
 # Turn oh-my-bash auto update prompt OFF
 # https://github.com/ohmybash/oh-my-bash#getting-updates
@@ -54,3 +56,7 @@ complete -C /usr/local/bin/terraform terraform
 
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+source "$HOME/.cargo/env"
+
+[ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env" # ghcup-env
