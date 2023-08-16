@@ -43,20 +43,22 @@ export DISABLE_UPDATE_PROMPT="true"
 # Autojump: https://github.com/wting/autojump#automatic
 . /usr/share/autojump/autojump.sh
 
-# https://direnv.net/docs/hook.html (from https://github.com/target/lorri)
-# eval "$(direnv hook bash)"
+# https://direnv.net/docs/hook.html
+eval "$(direnv hook bash)"
 
 source $HOME/bash_completion.d/gradle-completion.bash
 
 # https://sdkman.io/
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 complete -C /usr/local/bin/terraform terraform
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
 source "$HOME/.cargo/env"
 
 [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env" # ghcup-env
+
+export PATH="/home/churlin/.local/bin:$PATH"
