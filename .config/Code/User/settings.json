@@ -69,5 +69,5 @@
   "python.analysis.autoImportCompletions": true,
   "python.analysis.inlayHints.variableTypes": true,
   "redhat.telemetry.enabled": false,
-  "haskell.manageHLS": "GHCup",
+  "update.mode": "none",
 }
