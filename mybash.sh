@@ -59,6 +59,6 @@ complete -C /usr/local/bin/terraform terraform
 
 source "$HOME/.cargo/env"
 
-[ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env" # ghcup-env
+# [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env" # ghcup-env
 
 export PATH="/home/churlin/.local/bin:$PATH"
