@@ -19,38 +19,11 @@ Plugins are installed in `$HOME/.local/share/nvim/plugged/`
 - Isolated GHC installs on Ubuntu:
   https://www.haskell.org/ghcup/guide/#isolated-installs
 
-# opam
+# Gnome
 
-Create installation local to directory: `opam switch create . --deps-only 4.10.0`
+https://gitlab.gnome.org/tuxor1337/hidetopbar
 
-Then for integration with [direnv](https://direnv.net/):
-
-``` bash
-> cat .envrc
-eval $(opam env)
-```
-
-# ocaml
-
-Launch repl using the repo's libraries:
-
-```
-dune utop .
-```
-
-Silence a warning, using the `dune` file:
-
-```
-(env
-  (dev
-    (flags (:standard -w -32 -w -27))))
-```
-
-Generate dependencies graph:
-
-```
-dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.png && eog deps.png
-```
+gnome-shell-extension-prefs
 
 # Tips and tricks
 
@@ -136,3 +109,36 @@ Skeptics' Guide to the Universe, Skeptics with a K, Sawbones, Darknet diaries, C
   ```
   docker run -it olivr/copybara:latest bash
   ```
+
+# opam
+
+Create installation local to directory: `opam switch create . --deps-only 4.10.0`
+
+Then for integration with [direnv](https://direnv.net/):
+
+``` bash
+> cat .envrc
+eval $(opam env)
+```
+
+# ocaml
+
+Launch repl using the repo's libraries:
+
+```
+dune utop .
+```
+
+Silence a warning, using the `dune` file:
+
+```
+(env
+  (dev
+    (flags (:standard -w -32 -w -27))))
+```
+
+Generate dependencies graph:
+
+```
+dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.png && eog deps.png
+```

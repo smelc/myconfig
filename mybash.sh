@@ -36,7 +36,7 @@ export MYVIMRC="$HOME/PERSONNEL/myconfig/init.lua"
 
 # Turn oh-my-bash auto update prompt OFF
 # https://github.com/ohmybash/oh-my-bash#getting-updates
-export DISABLE_UPDATE_PROMPT="true"
+export DISABLE_AUTO_UPDATE="true"
 
 # source $HOME/.fzf.bash
 
@@ -57,7 +57,7 @@ complete -C /usr/local/bin/terraform terraform
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 # [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env" # ghcup-env
 

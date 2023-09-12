@@ -70,4 +70,6 @@
   "python.analysis.inlayHints.variableTypes": true,
   "redhat.telemetry.enabled": false,
   "update.mode": "none",
+  "editor.renderWhitespace": "none",
+  "git.openRepositoryInParentFolders": "always",
 }
