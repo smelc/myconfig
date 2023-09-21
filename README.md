@@ -19,6 +19,11 @@ Plugins are installed in `$HOME/.local/share/nvim/plugged/`
 - Isolated GHC installs on Ubuntu:
   https://www.haskell.org/ghcup/guide/#isolated-installs
 
+```
+~/.cabal/bin/graphmod  | tred | dot -Tpdf > modules.pdf
+rm dot.dot; ~/.cabal/bin/graphmod -q -p | tred > dot.dot
+```
+
 # Gnome
 
 https://gitlab.gnome.org/tuxor1337/hidetopbar
