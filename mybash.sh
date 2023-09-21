@@ -38,8 +38,6 @@ export MYVIMRC="$HOME/PERSONNEL/myconfig/init.lua"
 # https://github.com/ohmybash/oh-my-bash#getting-updates
 export DISABLE_AUTO_UPDATE="true"
 
-# source $HOME/.fzf.bash
-
 # Autojump: https://github.com/wting/autojump#automatic
 . /usr/share/autojump/autojump.sh
 
@@ -47,6 +45,8 @@ export DISABLE_AUTO_UPDATE="true"
 eval "$(direnv hook bash)"
 
 source $HOME/bash_completion.d/gradle-completion.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # https://sdkman.io/
 # export SDKMAN_DIR="$HOME/.sdkman"
