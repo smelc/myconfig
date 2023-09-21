@@ -31,8 +31,6 @@ export PATH="$PATH:$HOME/PERSONNEL/exdown"
 export PATH="/usr/local/lib/nodejs/node-v18.15.0-linux-x64/bin:$PATH"
 
 export EDITOR="nvim"
-# https://dev.to/reobin/reload-init-vim-without-restarting-neovim-1h82
-export MYVIMRC="$HOME/PERSONNEL/myconfig/init.lua"
 
 # Turn oh-my-bash auto update prompt OFF
 # https://github.com/ohmybash/oh-my-bash#getting-updates
@@ -48,14 +46,7 @@ source $HOME/bash_completion.d/gradle-completion.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# https://sdkman.io/
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 complete -C /usr/local/bin/terraform terraform
-
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
 
 # source "$HOME/.cargo/env"
 
