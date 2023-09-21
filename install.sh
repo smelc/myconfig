@@ -43,10 +43,6 @@ echo "# Ask passphrases every week" >> .gnupg/gpg-agent.conf
 echo "default-cache-ttl 604800" >> .gnupg/gpg-agent.conf
 echo "max-cache-ttl 604800" >> .gnupg/gpg-agent.conf
 
-pushd "$HOME/tools"
-git clone https://github.com/lincheney/fzf-tab-completion
-popd
-
 ########
 # nvim #
 ########
