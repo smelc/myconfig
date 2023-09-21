@@ -21,7 +21,7 @@
   },
   "languageServerHaskell.hieVariant": "haskell-language-server",
   "[haskell]": {
-    "editor.defaultFormatter": "sjurmillidahl.ormolu-vscode"
+    "editor.defaultFormatter": "haskell.haskell"
   },
   "shellcheck.disableVersionCheck": true,
   "[ocaml]": {
@@ -45,7 +45,6 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "haskell.hlintOn": false,
   "workbench.colorTheme": "One Dark Pro",
-  "haskell.plugin.hlint.diagnosticsOn": false,
   "editor.tabSize": 8,
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
@@ -72,4 +71,7 @@
   "update.mode": "none",
   "editor.renderWhitespace": "none",
   "git.openRepositoryInParentFolders": "always",
+  "workbench.startupEditor": "none",
+  "hoogle-vscode.url": "http://localhost:8080/",
+  "haskell.formattingProvider": "stylish-haskell",
 }
