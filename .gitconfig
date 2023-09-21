@@ -6,6 +6,9 @@
 [alias]
 	root = rev-parse --show-toplevel
 	please = push --force-with-lease
+	modified-at = show --pretty="" --name-only
+	modified = diff --name-only --diff-filter=ACM
+	staged = diff --staged --name-only --diff-filter=ACM
 [merge]
 	tool = meld
 [absorb]
@@ -19,3 +22,5 @@
 	name = Clément Hurlin
 [init]
 	defaultBranch = main
+[core]
+	pager = cat
