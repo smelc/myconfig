@@ -16,7 +16,14 @@ require("lazy").setup({
     "joshdick/onedark.vim", -- onedark
     "tpope/vim-commentary", -- gc to comment a line
     "vim-airline/vim-airline", -- nice status bar
-    "junegunn/fzf"
+    "junegunn/fzf",
+
+    "nvim-lua/plenary.nvim", -- for haskell-tools
+    "nvim-telescope/telescope.nvim", -- for haskell-tools
+    "mfussenegger/nvim-dap", -- for haskell-tools
+    { "mrcjkb/haskell-tools.nvim", branch = "1.x.x" },
+
+    "neovim/nvim-lspconfig",
 })
 
 vim.cmd.colorscheme("onedark")
