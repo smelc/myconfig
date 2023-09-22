@@ -15,7 +15,8 @@ require("lazy").setup({
     "mfussenegger/nvim-jdtls",
     "joshdick/onedark.vim", -- onedark
     "tpope/vim-commentary", -- gc to comment a line
-    "vim-airline/vim-airline"
+    "vim-airline/vim-airline", -- nice status bar
+    "junegunn/fzf"
 })
 
 vim.cmd.colorscheme("onedark")
@@ -29,8 +30,8 @@ vim.g.mapleader = " "
 vim.api.nvim_set_keymap('n', '<S-l>', "<cmd>:tabn<CR>", {})
 vim.api.nvim_set_keymap('n', '<S-h>', "<cmd>:tabp<CR>", {})
 
--- Reload config file
-vim.api.nvim_set_keymap('n', '<Leader><Leader>', ":source $MYVIMRC<CR>", {})
+-- Alias :FZF to Ctrl-P (vscode style)
+vim.api.nvim_set_keymap('n', '<C-p>', "<cmd>:FZF<CR>", {})
 
 -- Do not autoreload files on change, ask for confirmation instead
 vim.opt.autoread = false
