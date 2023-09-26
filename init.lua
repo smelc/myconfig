@@ -30,6 +30,8 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
 
     "BurntSushi/ripgrep", -- for telescope.nvim
+
+    "simrat39/symbols-outline.nvim"
 })
 
 require('nvim-treesitter.configs').setup {

@@ -9,6 +9,16 @@ telescope.load_extension('hoogle')
 local tb = require 'telescope.builtin'
 local ht = require('haskell-tools')
 
+-- simrat39/symbols-outline.nvim
+local symbols_outline_opt = {
+  symbols = {
+    Method = { icon = "f", hl = "@method" },
+  }
+}
+
+
+require("symbols-outline").setup()
+
 local def_opts = { noremap = true, silent = true, }
 ht.start_or_attach {
   hls = {
@@ -20,6 +30,10 @@ ht.start_or_attach {
       vim.keymap.set('n', '<space>cl', vim.lsp.codelens.run, opts)
       -- vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, bufopts) Doesn't work :-(
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+      -- <S-k> works out of the box :shrug:
+      -- vim.keymap.set('n', '<Ctrl-F1>', vim.lsp.buf.hover, bufopts)
+      -- vim.keymap.set('n', '<S-s>', vim.lsp.buf.signature_help, bufopts) -- unhandled
+      vim.keymap.set('n', '<leader>oo', "<Cmd>SymbolsOutline<CR>", bufopts)
 
       vim.keymap.set('n', '<leader>go', tb.lsp_outgoing_calls, bufopts)
       vim.keymap.set('n', '<leader>gi', tb.lsp_incoming_calls, bufopts)
