@@ -17,13 +17,14 @@ ht.start_or_attach {
       local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr, })
       -- haskell-language-server relies heavily on codeLenses,
       -- so auto-refresh (see advanced configuration) is enabled by default
-      vim.keymap.set('n', '<space>ca', vim.lsp.codelens.run, opts)
+      vim.keymap.set('n', '<space>cl', vim.lsp.codelens.run, opts)
       -- vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, bufopts) Doesn't work :-(
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
 
       vim.keymap.set('n', '<leader>go', tb.lsp_outgoing_calls, bufopts)
       vim.keymap.set('n', '<leader>gi', tb.lsp_incoming_calls, bufopts)
       vim.keymap.set('n', '<leader>rf', tb.lsp_references, bufopts)
+      vim.keymap.set('n', '<leader>ad',  tb.diagnostics)
 
       -- vscode style
       vim.keymap.set('n', '<F8>', vim.diagnostic.goto_next, bufopts)

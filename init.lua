@@ -26,12 +26,18 @@ require("lazy").setup({
 
     "luc-tielen/telescope_hoogle",
     "nvim-treesitter/nvim-treesitter", -- recommended by haskell-tools
-    "neovimhaskell/haskell-vim", -- better highlighting in haskell
 
     "neovim/nvim-lspconfig",
 
     "BurntSushi/ripgrep", -- for telescope.nvim
 })
+
+require('nvim-treesitter.configs').setup {
+    ensure_installed = "haskell", -- "all" or at least "haskell"
+    highlight = {
+        enable = true, -- important
+    },
+}
 
 vim.cmd.colorscheme("nightfox")
 
