@@ -28,7 +28,6 @@ function gitbrco() {
 }
 
 export PATH="$PATH:$HOME/PERSONNEL/exdown"
-export PATH="/usr/local/lib/nodejs/node-v18.15.0-linux-x64/bin:$PATH"
 
 export EDITOR="nvim"
 
@@ -42,11 +41,11 @@ export DISABLE_AUTO_UPDATE="true"
 # https://direnv.net/docs/hook.html
 eval "$(direnv hook bash)"
 
-source $HOME/bash_completion.d/gradle-completion.bash
+# source $HOME/bash_completion.d/gradle-completion.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-complete -C /usr/local/bin/terraform terraform
+# complete -C /usr/local/bin/terraform terraform
 
 # source "$HOME/.cargo/env"
 
@@ -54,6 +53,12 @@ complete -C /usr/local/bin/terraform terraform
 
 export PATH="/home/churlin/.local/bin:$PATH"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+function set_prompt() {
+  source "/home/churlin/PERSONNEL/myconfig/prompt.sh"
+}
+
+export PROMPT_COMMAND=set_prompt
