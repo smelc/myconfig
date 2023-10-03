@@ -19,6 +19,7 @@ color_cyan="\e[36m"
 color_light_blue="\e[94m"
 color_bold_blue="\e[1;34m"
 color_bold_green="\e[1;32m"
+color_bold_red="\e[1;31m"
 color_green="\e[32m"
 color_red="\e[31m"
 color_end="\e[0m"
@@ -33,6 +34,17 @@ PS1=""
 PS1+="$color_light_blue"
 PS1+="$(date "+%H:%M:%S")"
 PS1+="$color_end "
+
+######################
+### Add Nix marker ###
+######################
+
+if [[ -n "$IN_NIX_SHELL" ]]
+then
+  PS1+="$color_bold_red"
+  PS1+="$IN_NIX_SHELL"
+  PS1+="$color_end "
+fi
 
 #######################
 ### Print working dir #

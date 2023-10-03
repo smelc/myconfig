@@ -16,6 +16,7 @@ function apt_install_if_missing() {
 
 apt_install_if_missing autojump
 apt_install_if_missing chrome-gnome-shell
+apt_install_if_missing curl
 apt_install_if_missing direnv
 apt_install_if_missing entr
 apt_install_if_missing fd-find # for nvim's telescope
@@ -23,6 +24,7 @@ apt_install_if_missing fzf
 apt_install_if_missing gnome-shell-extension-prefs
 apt_install_if_missing gnome-tweaks
 apt_install_if_missing meld
+apt_install_if_missing parcellite
 apt_install_if_missing ripgrep # for nvim's telescope
 
 [[ -e "$HOME/tools" ]] || mkdir "$HOME/tools"
@@ -109,7 +111,8 @@ sudo update-alternatives --config x-terminal-emulator
 # vscode #
 ##########
 
-pushd "/home/churlin/.config/Code/User"
-ln -s $HERE/keybindings.json .
-ln -s $HERE/settings.json .
+[[ -e "$HOME/.config/Code/User" ]] || mkdir -p "$HOME/.config/Code/User"
+pushd "$HOME/.config/Code/User"
+[[ -e "keybindings.json" ]] || ln -s $HERE/.config/Code/User/keybindings.json .
+[[ -e "settings.json" ]] || ln -s $HERE/.config/Code/User/settings.json .
 popd

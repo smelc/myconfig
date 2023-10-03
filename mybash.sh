@@ -31,10 +31,6 @@ export PATH="$PATH:$HOME/PERSONNEL/exdown"
 
 export EDITOR="nvim"
 
-# Turn oh-my-bash auto update prompt OFF
-# https://github.com/ohmybash/oh-my-bash#getting-updates
-export DISABLE_AUTO_UPDATE="true"
-
 # Autojump: https://github.com/wting/autojump#automatic
 . /usr/share/autojump/autojump.sh
 
