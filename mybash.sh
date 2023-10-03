@@ -31,13 +31,10 @@ export PATH="$PATH:$HOME/PERSONNEL/exdown"
 
 export EDITOR="nvim"
 
-# Autojump: https://github.com/wting/autojump#automatic
-. /usr/share/autojump/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 # https://direnv.net/docs/hook.html
-eval "$(direnv hook bash)"
-
-# source $HOME/bash_completion.d/gradle-completion.bash
+# eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -49,12 +46,4 @@ eval "$(direnv hook bash)"
 
 export PATH="/home/churlin/.local/bin:$PATH"
 
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-function set_prompt() {
-  source "/home/churlin/PERSONNEL/myconfig/prompt.sh"
-}
-
-export PROMPT_COMMAND=set_prompt
+# source "$HOME/PERSONNEL/myconfig/prompt.sh"

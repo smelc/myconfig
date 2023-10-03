@@ -38,6 +38,23 @@ cd "pass-git-helper"
 ln -s "$HERE/git-pass-mapping.ini" .
 popd
 
+##############
+# oh-my-bash #
+##############
+
+if [[ ! -e ".oh-my-bash" ]]
+then
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+  cd $HOME
+  rm .bashrc
+  ln -s "$HERE/.bashrc" .
+  cd -
+
+  cd "$HOME/.oh-my-bash/themes/font" || { echo "Cannot cd into $HOME/.oh-my-bash/themes/font"; exit 1 }
+  ln -s "$HERE/.oh-my-bash/themes/font/font.theme.sh" . || { echo "Cannot ln -s .oh-my-bash/themes/font/font.theme.sh"; exit 1 }
+  cd -
+fi
+
 # Passphrase caching: one week
 # See https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session
 echo "# Ask passphrases every week" >> .gnupg/gpg-agent.conf
