@@ -22,7 +22,6 @@ apt_install_if_missing fd-find # for nvim's telescope
 apt_install_if_missing fzf
 apt_install_if_missing gnome-shell-extension-prefs
 apt_install_if_missing gnome-tweaks
-apt_install_if_missing nodejs # required by neovim's coc.vim
 apt_install_if_missing meld
 apt_install_if_missing ripgrep # for nvim's telescope
 
@@ -49,8 +48,6 @@ echo "max-cache-ttl 604800" >> .gnupg/gpg-agent.conf
 
 # Install [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-download)
 
-# Install the [plug manager](https://github.com/junegunn/vim-plug#neovim)
-
 cd "$HOME"
 mkdir ".config/nvim"
 if [[ -e ".gitconfig" ]]; then
@@ -59,10 +56,7 @@ else
   ln -s "${HERE}/.gitconfig" .
 fi
 cd ".config/nvim"
-ln -s "${HERE}/init.vim" .
-ln -s "${HERE}/coc_config_nvim.vim" .
-# Content of next file was copied from https://github.com/digital-asset/ghcide#using-it
-ln -s "${HERE}/coc-settings.json" .
+ln -s "${HERE}/init.lua" .
 cd "$HERE"
 
 # Install https://github.com/sharkdp/bat
@@ -72,14 +66,14 @@ apt_install_if_missing bat
 # ocaml #
 #########
 
-if [[ ! $(which opam) ]]; then
-  add-apt-repository ppa:avsm/ppa
-  apt update
-  apt install opam
-  opam init
-  opam config setup -a
-  # opam install merlin utop ocp-indent ounit2
-fi
+# if [[ ! $(which opam) ]]; then
+#   add-apt-repository ppa:avsm/ppa
+#   apt update
+#   apt install opam
+#   opam init
+#   opam config setup -a
+#   # opam install merlin utop ocp-indent ounit2
+# fi
 
 #########
 # kitty #
