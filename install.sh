@@ -20,7 +20,6 @@ apt_install_if_missing curl
 apt_install_if_missing direnv
 apt_install_if_missing entr
 apt_install_if_missing fd-find # for nvim's telescope
-apt_install_if_missing fzf
 apt_install_if_missing gnome-shell-extension-prefs
 apt_install_if_missing gnome-tweaks
 apt_install_if_missing meld
@@ -60,6 +59,16 @@ fi
 echo "# Ask passphrases every week" >> .gnupg/gpg-agent.conf
 echo "default-cache-ttl 604800" >> .gnupg/gpg-agent.conf
 echo "max-cache-ttl 604800" >> .gnupg/gpg-agent.conf
+
+#######
+# fzf #
+#######
+
+if [[ ! -e "$HOME/.fzf" ]]
+then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
 
 ########
 # nvim #
