@@ -54,11 +54,23 @@ then
   cd -
 fi
 
+#########
+# gnupg #
+#########
+
 # Passphrase caching: one week
 # See https://superuser.com/questions/624343/keep-gnupg-credentials-cached-for-entire-user-session
-echo "# Ask passphrases every week" >> .gnupg/gpg-agent.conf
-echo "default-cache-ttl 604800" >> .gnupg/gpg-agent.conf
-echo "max-cache-ttl 604800" >> .gnupg/gpg-agent.conf
+
+if [[ ! -e "$HOME/.gnupg/gpg-agent.conf" ]]
+then
+  cd $HOME
+  touch .gnupg/gpg-agent.conf
+  echo "# Ask passphrases every week" >> .gnupg/gpg-agent.conf
+  echo "default-cache-ttl 604800" >> .gnupg/gpg-agent.conf
+  echo "max-cache-ttl 604800" >> .gnupg/gpg-agent.conf
+  cat .gnupg/gpg-agent.conf
+  cd -
+fi
 
 #######
 # fzf #
