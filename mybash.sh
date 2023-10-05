@@ -34,7 +34,7 @@ export EDITOR="nvim"
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 # https://direnv.net/docs/hook.html
-# eval "$(direnv hook bash)"
+eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

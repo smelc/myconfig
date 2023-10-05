@@ -142,3 +142,15 @@ pushd "$HOME/.config/Code/User"
 [[ -e "keybindings.json" ]] || ln -s $HERE/.config/Code/User/keybindings.json .
 [[ -e "settings.json" ]] || ln -s $HERE/.config/Code/User/settings.json .
 popd
+
+#########
+# gnome #
+#########
+
+# Install all these:
+# https://extensions.gnome.org/extension/1485/workspace-matrix/
+# https://extensions.gnome.org/extension/755/hibernate-status-button/
+# https://extensions.gnome.org/extension/906/sound-output-device-chooser/
+#
+# See Ubuntu 22.04 section (a bit below) in:
+# https://askubuntu.com/questions/1059479/dual-monitor-workspaces-in-ubuntu-18-04
