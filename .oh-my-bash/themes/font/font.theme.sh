@@ -57,10 +57,11 @@ function _omb_theme_PROMPT_COMMAND() {
         ret_status="${_omb_prompt_bold_brown}"
     fi
 
-    CURRENT_BRANCH=$(git branch --show-current 2> /dev/null)
+    git rev-parse --show-toplevel &> /dev/null
     if [[ "$?" == "0" ]]
     then
       # In a git repo
+      CURRENT_BRANCH=$(git branch --show-current 2> /dev/null)
       scm_prompt_char_info=" ${_omb_prompt_green}|$CURRENT_BRANCH${_omb_prompt_green}|"
       local omb_location="$(realpath --relative-to="$(git root)/.." $(pwd))"
     else
