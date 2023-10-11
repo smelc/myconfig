@@ -22,6 +22,7 @@ apt_install_if_missing entr
 apt_install_if_missing fd-find # for nvim's telescope
 apt_install_if_missing gnome-shell-extension-prefs
 apt_install_if_missing gnome-tweaks
+apt_install_if_missing jq
 apt_install_if_missing meld
 apt_install_if_missing parcellite
 apt_install_if_missing ripgrep # for nvim's telescope
@@ -136,6 +137,23 @@ fi
 
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which kitty) 50
 sudo update-alternatives --config x-terminal-emulator
+
+# Add icon
+if [[ ! -e "$HOME/.local/share/applications/kitty.desktop" ]]
+then
+  cat << EOT >> $HOME/.local/share/applications/kitty.desktop
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kitty
+GenericName=Terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+TryExec=kitty
+Exec=kitty
+Icon=/home/churlin/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
+Categories=System;TerminalEmulator;"
+EOT
+fi
 
 ######################
 # Enable hibernation #
