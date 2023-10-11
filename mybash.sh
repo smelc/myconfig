@@ -7,6 +7,7 @@ alias gst="git status --untracked-files=no"
 alias lg="lazygit"
 alias apg="apg -m 10 -M SNCL"
 alias cdgr='cd $(git rev-parse --show-toplevel)'
+alias gitdiffall='git difftool --dir-diff --tool=meld'
 
 function run() {
   echo "$@"
