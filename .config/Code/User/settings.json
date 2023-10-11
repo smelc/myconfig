@@ -75,4 +75,7 @@
   "hoogle-vscode.url": "http://localhost:8080/",
   "haskell.formattingProvider": "stylish-haskell",
   "haskell.manageHLS": "PATH",
+  "vim.handleKeys": {
+    "<C-b>": false
+  },
 }
