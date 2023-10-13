@@ -16,13 +16,12 @@ local symbols_outline_opt = {
   }
 }
 
-
 require("symbols-outline").setup()
 
 local def_opts = { noremap = true, silent = true, }
-ht.start_or_attach {
+vim.g.haskell_tools = {
   hls = {
-    on_attach = function(client, bufnr)
+    on_attach = function(client, bufnr, ht)
       -- local_on_attach(client, bufnr)
       local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr, })
       -- haskell-language-server relies heavily on codeLenses,
@@ -63,15 +62,16 @@ local bufnr = vim.api.nvim_get_current_buf()
 -- set buffer = bufnr in ftplugin/haskell.lua
 local opts = { noremap = true, silent = true, buffer = bufnr }
 
+-- repl: Broken by update to 2.x.x
+
 -- Toggle a GHCi repl for the current package
-vim.keymap.set('n', '<leader>rp', ht.repl.toggle, opts)
+-- vim.keymap.set('n', '<leader>rp', ht.repl.toggle, opts)
 -- Toggle a GHCi repl for the current buffer
-vim.keymap.set('n', '<leader>rb', function()
-  ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-end, def_opts)
+-- vim.keymap.set('n', '<leader>rb', function()
+--   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
+-- end, def_opts)
 -- Quit repl
-vim.keymap.set('n', '<leader>rq', ht.repl.quit, opts)
+-- vim.keymap.set('n', '<leader>rq', ht.repl.quit, opts)
 
 -- Detect nvim-dap launch configurations
 -- (requires nvim-dap and haskell-debug-adapter)
-ht.dap.discover_configurations(bufnr)
