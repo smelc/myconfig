@@ -90,7 +90,7 @@ fi
 # Install [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-download)
 
 cd "$HOME"
-mkdir ".config/nvim"
+mkdir -p ".config/nvim/ftplugin"
 if [[ -e ".gitconfig" ]]; then
   echo "$HOME/.gitconfig exists: not installing ${HERE}/.gitconfig"
 else
@@ -98,6 +98,9 @@ else
 fi
 cd ".config/nvim"
 ln -s "${HERE}/init.lua" .
+cd "$HERE"
+cd ".config/nvim/ftplugin"
+ln -s "${HERE}/haskell.lua" .
 cd "$HERE"
 
 # Install https://github.com/sharkdp/bat
