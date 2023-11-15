@@ -16,8 +16,14 @@ Plugins are installed in `$HOME/.local/share/nvim/plugged/`
 
 # haskell
 
-- Isolated GHC installs on Ubuntu:
-  https://www.haskell.org/ghcup/guide/#isolated-installs
+Isolated GHC installs on Ubuntu: https://www.haskell.org/ghcup/guide/#isolated-installs
+
+```
+mkdir -p bin/ghc
+mkdir -p bin/cabal
+ghcup install cabal --isolate $(pwd)/bin/cabal
+ghcup install ghc --isolate $(pwd)/bin/ghc
+```
 
 ```
 ~/.cabal/bin/graphmod  | tred | dot -Tpdf > modules.pdf
