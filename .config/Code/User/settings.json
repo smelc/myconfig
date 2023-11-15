@@ -1,8 +1,6 @@
 {
   "keyboard.dispatch": "keyCode",
   "editor.minimap.enabled": false,
-  "hoogle-vscode.maxResults": 20,
-  "reason.format.width": 0,
   "editor.rulers": [
     80,
     110
@@ -19,35 +17,20 @@
     "**/*.o": true,
     "**/*.swp": true
   },
-  "languageServerHaskell.hieVariant": "haskell-language-server",
   "[haskell]": {
     "editor.defaultFormatter": "haskell.haskell"
   },
-  "shellcheck.disableVersionCheck": true,
-  "[ocaml]": {
-    "editor.defaultFormatter": "ocamllabs.ocaml-platform"
-  },
   "haskell.trace.server": "messages",
   "diffEditor.renderSideBySide": true,
-  "ocaml.trace.server": "messages",
-  "haskell.updateBehavior": "prompt",
-  "haskell.liquidOn": true,
-  "liveshare.publishWorkspaceInfo": true,
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "java.configuration.checkProjectSettingsExclusions": false,
-  "python.languageServer": "Pylance",
-  "python.showStartPage": false,
-  "liveshare.authenticationProvider": "GitHub",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
   "diffEditor.ignoreTrimWhitespace": false,
-  "haskell.hlintOn": false,
   "workbench.colorTheme": "Default Dark Modern",
   "editor.tabSize": 8,
   "editor.cursorStyle": "line",
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
@@ -55,27 +38,24 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "bracket-pair-colorizer-2.depreciation-notice": false,
   "haskell.plugin.hlint.codeActionsOn": false,
-  "python.formatting.provider": "black",
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.typeCheckingMode": "basic",
   "editor.guides.indentation": false,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnType": true
   },
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.inlayHints.variableTypes": true,
-  "redhat.telemetry.enabled": false,
   "update.mode": "none",
   "editor.renderWhitespace": "none",
   "git.openRepositoryInParentFolders": "always",
   "workbench.startupEditor": "none",
-  "hoogle-vscode.url": "http://localhost:8080/",
   "haskell.formattingProvider": "stylish-haskell",
   "haskell.manageHLS": "PATH",
   "vim.handleKeys": {
-    "<C-b>": false
+    "<C-b>": false,
+    "<C-y>": false
   },
+  "settingsSync.ignoredSettings": [
+    "-haskell.serverExecutablePath"
+  ],
+  "haskell.plugin.rename.config.crossModule": true,
 }
