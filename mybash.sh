@@ -8,6 +8,7 @@ alias lg="lazygit"
 alias apg="apg -m 10 -M SNCL"
 alias cdgr='cd $(git rev-parse --show-toplevel)'
 alias gitdiffall='git difftool --dir-diff --tool=meld'
+alias grep="grep --exclude-dir=dist-newstyle"
 
 function run() {
   echo "$@"
@@ -39,12 +40,6 @@ eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# complete -C /usr/local/bin/terraform terraform
-
-# source "$HOME/.cargo/env"
-
-# [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env" # ghcup-env
+# [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env"
 
 export PATH="/home/churlin/.local/bin:$PATH"
-
-# source "$HOME/PERSONNEL/myconfig/prompt.sh"

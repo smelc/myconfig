@@ -158,6 +158,15 @@ Categories=System;TerminalEmulator;"
 EOT
 fi
 
+###########
+# lazygit #
+###########
+
+pushd "$HOME"
+mkdir -p .config/lazygit
+ln -s "$HERE/.config/lazygit/config.yml" .
+popd
+
 ######################
 # Enable hibernation #
 ######################

@@ -14,7 +14,7 @@ Install a plugin without quitting vim:
 
 Plugins are installed in `$HOME/.local/share/nvim/plugged/`
 
-# haskell
+# Haskell
 
 Isolated GHC installs on Ubuntu: https://www.haskell.org/ghcup/guide/#isolated-installs
 
@@ -30,11 +30,23 @@ ghcup install ghc --isolate $(pwd)/bin/ghc
 rm dot.dot; ~/.cabal/bin/graphmod -q -p | tred > dot.dot
 ```
 
+List installed packages in a project:
+
+```
+cabal list --installed
+```
+
 # Gnome
 
 https://gitlab.gnome.org/tuxor1337/hidetopbar
 
 gnome-shell-extension-prefs
+
+To hide list of icons (to get rid of Slack red button):
+
+```
+gnome-extensions disable ubuntu-appindicators@ubuntu.com
+```
 
 # Tips and tricks
 
@@ -132,7 +144,7 @@ Then for integration with [direnv](https://direnv.net/):
 eval $(opam env)
 ```
 
-# ocaml
+# OCaml
 
 Launch repl using the repo's libraries:
 

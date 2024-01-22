@@ -24,3 +24,5 @@
 	defaultBranch = main
 [core]
 	pager = cat
+[diff]
+        external = difft

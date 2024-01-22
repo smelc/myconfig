@@ -58,4 +58,6 @@
     "-haskell.serverExecutablePath"
   ],
   "haskell.plugin.rename.config.crossModule": true,
+  "inlineChat.showGutterIcon": true,
+  "github.copilot.editor.enableAutoCompletions": false,
 }
