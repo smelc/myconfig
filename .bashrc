@@ -92,7 +92,7 @@ completions=(
 # Add wisely, as too many aliases slow down shell startup.
 aliases=(
   general
-)source "/home/churlin/PERSONNEL/myconfig/mybash.sh"
+)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/

@@ -60,4 +60,11 @@
   "haskell.plugin.rename.config.crossModule": true,
   "inlineChat.showGutterIcon": true,
   "github.copilot.editor.enableAutoCompletions": false,
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/user/bin/bash",
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "bash",
 }
