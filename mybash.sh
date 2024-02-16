@@ -29,6 +29,11 @@ function gitbrco() {
   git checkout "$1"
 }
 
+function cabalg() {
+  [[ -n "$1" ]] || { echo "cabalg requires exactly one parameter: the string to search"; return 1; }
+  git grep $1 -- '*.cabal'
+}
+
 export PATH="$PATH:$HOME/PERSONNEL/exdown"
 
 export EDITOR="nvim"
