@@ -6,6 +6,14 @@ set +eux
 
 HERE=$(pwd)
 
+if [[ "$HERE" != "/home/churlin/PERSONNEL/myconfig" ]]
+then
+  echo "Expected myconfig repo to be at /home/churlin/PERSONNEL/myconfig"
+  echo "Instead, found: $HERE"
+  echo "Please put the myconfig repo in the expected position"
+  exit 1
+fi
+
 function apt_install_if_missing() {
   local -r last_line=$(dpkg -l "$1" | tail -n 1)
   if [[ "$last_line" == "ii"* ]]; then return 0; fi
@@ -46,12 +54,12 @@ if [[ ! -e ".oh-my-bash" ]]
 then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
   cd $HOME
-  rm .bashrc
-  ln -s "$HERE/.bashrc" .
+  echo "source /home/churlin/PERSONNEL/myconfig/mybash.sh" >> .bashrc
   cd -
 
-  cd "$HOME/.oh-my-bash/themes/font" || { echo "Cannot cd into $HOME/.oh-my-bash/themes/font"; exit 1 }
-  ln -s "$HERE/.oh-my-bash/themes/font/font.theme.sh" . || { echo "Cannot ln -s .oh-my-bash/themes/font/font.theme.sh"; exit 1 }
+  cd "$HOME/.oh-my-bash/themes/font" || { echo "Cannot cd into $HOME/.oh-my-bash/themes/font"; exit 1; }
+  rm font.theme.sh
+  ln -s "$HERE/.oh-my-bash/themes/font/font.theme.sh" . || { echo "Cannot ln -s .oh-my-bash/themes/font/font.theme.sh"; exit 1; }
   cd -
 fi
 
@@ -87,7 +95,7 @@ fi
 # nvim #
 ########
 
-# Install [nvim](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-download)
+which nvim || { echo "Please install neovim: https://github.com/neovim/neovim/releases/ and restart this script"; exit 1; }
 
 cd "$HOME"
 mkdir -p ".config/nvim/ftplugin"
@@ -161,6 +169,8 @@ fi
 ###########
 # lazygit #
 ###########
+
+which lazygit || { echo "Please install lazygit: https://github.com/jesseduffield/lazygit/releases and restart this script"; exit 1; }
 
 pushd "$HOME"
 mkdir -p .config/lazygit
