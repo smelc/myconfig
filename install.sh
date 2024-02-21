@@ -127,6 +127,31 @@ apt_install_if_missing bat
 #   # opam install merlin utop ocp-indent ounit2
 # fi
 
+###########
+# Haskell #
+###########
+
+# Instal ghcup
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+
+#######
+# Nix #
+#######
+
+# Install via nixos.org
+
+# Make sure the following is in /etc/nix/nix.conf:
+#
+# substituters = https://cache.nixos.org https://cache.iog.io
+# trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+# experimental-features = nix-command flakes auto-allocate-uids configurable-impure-env
+# allow-import-from-derivation = true
+# build-users-group = nixbld
+# trusted-users = root smelc
+
+# Be sure to run: sudo systemctl restart nix-daemon.service
+# afterwards to have the changes taken into account
+
 #########
 # kitty #
 #########
@@ -201,8 +226,24 @@ popd
 
 # Install all these:
 # https://extensions.gnome.org/extension/1485/workspace-matrix/
+# Then configure like this: https://askubuntu.com/questions/1403554/switch-workspace-on-dual-monitor-22-04
 # https://extensions.gnome.org/extension/755/hibernate-status-button/
 # https://extensions.gnome.org/extension/906/sound-output-device-chooser/
-#
+
+if [[ ! -e "/etc/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla" ]]
+then
+  sudo cat > /etc/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla << EOL
+[Enable hibernate in upower]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+
+[Enable hibernate in logind]
+Identity=unix-user:*
+Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
+ResultActive=yes
+EOL
+fi
+
 # See Ubuntu 22.04 section (a bit below) in:
 # https://askubuntu.com/questions/1059479/dual-monitor-workspaces-in-ubuntu-18-04
