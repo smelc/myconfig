@@ -22,14 +22,8 @@ require("lazy").setup({
     "nvim-lua/plenary.nvim", -- for haskell-tools
     "nvim-telescope/telescope.nvim", -- for haskell-tools
     "mfussenegger/nvim-dap", -- for haskell-tools
-    { 'mrcjkb/haskell-tools.nvim',
-      dependencies = { 'nvim-lua/plenary.nvim', },
-      version = '^2', -- Recommended
-      ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
-     },
 
     "luc-tielen/telescope_hoogle",
-    "nvim-treesitter/nvim-treesitter", -- recommended by haskell-tools
 
     "neovim/nvim-lspconfig",
 
@@ -37,13 +31,6 @@ require("lazy").setup({
 
     "simrat39/symbols-outline.nvim"
 })
-
-require('nvim-treesitter.configs').setup {
-    ensure_installed = "haskell", -- "all" or at least "haskell"
-    highlight = {
-        enable = true, -- important
-    },
-}
 
 vim.cmd.colorscheme("nightfox")
 
