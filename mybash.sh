@@ -38,7 +38,7 @@ export PATH="$PATH:$HOME/PERSONNEL/exdown"
 
 export EDITOR="nvim"
 
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+[[ -s "/usr/share/autojump/autojump.bash" ]] && source /usr/share/autojump/autojump.bash
 
 # https://direnv.net/docs/hook.html
 eval "$(direnv hook bash)"
