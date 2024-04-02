@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for file in $@
+do
+  new_file=$(mktemp -u)
+  cat $file | jq -S . > $new_file
+  mv -f $new_file $file
+done

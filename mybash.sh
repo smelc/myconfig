@@ -30,8 +30,8 @@ function gitbrco() {
 }
 
 function cabalg() {
-  [[ -n "$1" ]] || { echo "cabalg requires exactly one parameter: the string to search"; return 1; }
-  git grep $1 -- '*.cabal'
+  [[ -n "$1" ]] || { echo "cabalg requires at least one parameter: the string to search"; return 1; }
+  git grep $@ -- '*.cabal'
 }
 
 export PATH="$PATH:$HOME/PERSONNEL/exdown"
@@ -45,6 +45,8 @@ eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env"
-
 export PATH="/home/churlin/.local/bin:$PATH"
+
+# Things that typically go in .envrc:
+# [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env"
+# source "$HOME/.cargo/env"
