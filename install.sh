@@ -47,6 +47,14 @@ ln -s "$HERE/git-pass-mapping.ini" .
 popd
 
 ##############
+# jsonformat #
+##############
+
+cd /usr/local/bin
+sudo ln -s "$HERE/jsonformat" .
+cd -
+
+##############
 # oh-my-bash #
 ##############
 
