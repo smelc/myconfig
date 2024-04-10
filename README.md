@@ -36,6 +36,8 @@ List installed packages in a project:
 cabal list --installed
 ```
 
+Reproducible standalone Haskell executable using cabal: https://github.com/IntersectMBO/cardano-node/pull/5770/files
+
 # Gnome
 
 https://gitlab.gnome.org/tuxor1337/hidetopbar
