@@ -49,7 +49,6 @@
   "git.openRepositoryInParentFolders": "always",
   "workbench.startupEditor": "none",
   "haskell.formattingProvider": "stylish-haskell",
-  "haskell.manageHLS": "PATH",
   "vim.handleKeys": {
     "<C-b>": false,
     "<C-y>": false
@@ -59,7 +58,6 @@
   ],
   "haskell.plugin.rename.config.crossModule": true,
   "inlineChat.showGutterIcon": true,
-  "github.copilot.editor.enableAutoCompletions": false,
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "/user/bin/bash",
@@ -68,4 +66,5 @@
   },
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.scrollback": 10000,
+  "explorer.confirmDragAndDrop": false
 }

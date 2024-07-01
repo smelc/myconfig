@@ -9,6 +9,7 @@ alias apg="apg -m 10 -M SNCL"
 alias cdgr='cd $(git rev-parse --show-toplevel)'
 alias gitdiffall='git difftool --dir-diff --tool=meld'
 alias grep="grep --exclude-dir=dist-newstyle"
+alias stylishnow='stylish-haskell -i $(git staged "*.hs") $(git modified "*.hs")'
 
 function run() {
   echo "$@"

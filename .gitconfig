@@ -9,6 +9,7 @@
 	modified-at = show --pretty="" --name-only
 	modified = diff --name-only --diff-filter=ACM
 	staged = diff --staged --name-only --diff-filter=ACM
+	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
 [merge]
 	tool = meld
 [absorb]

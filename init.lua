@@ -15,6 +15,7 @@ require("lazy").setup({
     "mfussenegger/nvim-jdtls",
     "joshdick/onedark.vim", -- onedark
     "EdenEast/nightfox.nvim", -- nightfox
+    "tpope/vim-fugitive", -- https://github.com/tpope/vim-fugitive
     "tpope/vim-commentary", -- gc to comment a line
     "vim-airline/vim-airline", -- nice status bar
     "junegunn/fzf",
