@@ -48,7 +48,7 @@
   "editor.renderWhitespace": "none",
   "git.openRepositoryInParentFolders": "always",
   "workbench.startupEditor": "none",
-  "haskell.formattingProvider": "stylish-haskell",
+  "haskell.formattingProvider": "fourmolu",
   "vim.handleKeys": {
     "<C-b>": false,
     "<C-y>": false
@@ -66,5 +66,13 @@
   },
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.scrollback": 10000,
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.typeCheckingMode": "strict",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  }
 }

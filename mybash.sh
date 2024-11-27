@@ -9,7 +9,6 @@ alias apg="apg -m 10 -M SNCL"
 alias cdgr='cd $(git rev-parse --show-toplevel)'
 alias gitdiffall='git difftool --dir-diff --tool=meld'
 alias grep="grep --exclude-dir=dist-newstyle"
-alias stylishnow='stylish-haskell -i $(git staged "*.hs") $(git modified "*.hs")'
 
 function run() {
   echo "$@"
@@ -35,6 +34,12 @@ function cabalg() {
   git grep $@ -- '*.cabal'
 }
 
+function hsformat() {
+  [[ -n "$1" ]] || { echo "hsformat requires at least one parameter: a file to format"; return 1; }
+  fourmolu -i $@
+  stylish-haskell -i $@
+}
+
 export PATH="$PATH:$HOME/PERSONNEL/exdown"
 
 export EDITOR="nvim"
@@ -51,3 +56,18 @@ export PATH="/home/churlin/.local/bin:$PATH"
 # Things that typically go in .envrc:
 # [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env"
 # source "$HOME/.cargo/env"
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/churlin/.opam/opam-init/init.sh' && . '/home/churlin/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
+# END opam configuration
+#
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$PATH:~/.local/share/coursier/bin"

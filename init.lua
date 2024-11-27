@@ -21,10 +21,16 @@ require("lazy").setup({
     "junegunn/fzf",
 
     "nvim-lua/plenary.nvim", -- for haskell-tools
-    "nvim-telescope/telescope.nvim", -- for haskell-tools
+    "nvim-telescope/telescope.nvim",
     "mfussenegger/nvim-dap", -- for haskell-tools
+    {
+      "ndmitchell/ghcid",
+      config = function(plugin)
+        vim.opt.rtp:append(plugin.dir .. "/plugins/nvim")
+      end,
+    },
 
-    "luc-tielen/telescope_hoogle",
+    -- "luc-tielen/telescope_hoogle", I don't use it
 
     "neovim/nvim-lspconfig",
 
@@ -57,3 +63,5 @@ vim.keymap.set('n', '\\fg', tb.live_grep, {})
 vim.opt.autoread = false
 -- Do not write .swp files, which I've never benefited of
 vim.opt.swapfile = false
+-- Insert spaces instead of tabs
+vim.opt.expandtab = true
