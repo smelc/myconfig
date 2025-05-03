@@ -74,5 +74,10 @@
     "**/.bloop": true,
     "**/.metals": true,
     "**/.ammonite": true
+  },
+  "redhat.telemetry.enabled": false,
+  "haskell.sessionLoading": "multipleComponents",
+  "gitlens.advanced.messages": {
+    "suppressIntegrationRequestTimedOutWarning": true
   }
 }
