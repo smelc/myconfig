@@ -69,5 +69,3 @@ test -r '/home/churlin/.opam/opam-init/init.sh' && . '/home/churlin/.opam/opam-i
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export PATH="$PATH:~/.local/share/coursier/bin"
