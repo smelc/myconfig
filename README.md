@@ -167,3 +167,11 @@ Generate dependencies graph:
 ```
 dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.png && eog deps.png
 ```
+
+# gemini-cli
+
+Update it:
+
+```
+sudo npm install -g @google/gemini-cli
+```
