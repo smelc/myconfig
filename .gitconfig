@@ -19,7 +19,8 @@
 [credential]
 	helper = !pass-git-helper $@
 [user]
-	email = clement.hurlin@moduscreate.com
+	signingkey = 8C53D3E6D2E985F7
+	email = clement.hurlin@tweag.io
 	name = Clément Hurlin
 [init]
 	defaultBranch = main
