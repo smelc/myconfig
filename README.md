@@ -137,7 +137,7 @@ Skeptics' Guide to the Universe, Skeptics with a K, Sawbones, Darknet diaries, C
 
 # opam
 
-Create installation local to directory: `opam switch create . --deps-only 4.10.0`
+Create installation local to directory: `opam switch create . --deps-only 5.3.0`
 
 Then for integration with [direnv](https://direnv.net/):
 
