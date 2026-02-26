@@ -18,13 +18,8 @@
 	colormoved = default
 [credential]
 	helper = !pass-git-helper $@
-[user]
-	signingkey = 8C53D3E6D2E985F7
-	email = clement.hurlin@tweag.io
-	name = Clément Hurlin
+        useHttpPath = true
 [init]
 	defaultBranch = main
 [core]
 	pager = cat
-; [diff]
-;         external = difft
