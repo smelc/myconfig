@@ -80,4 +80,5 @@
   "gitlens.advanced.messages": {
     "suppressIntegrationRequestTimedOutWarning": true
   }
+  "claudeCode.useTerminal": true,
 }

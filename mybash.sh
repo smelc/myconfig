@@ -18,9 +18,9 @@ function run() {
 function gitsync() {
   [[ -n "$1" ]] || { echo "Name of remote should be specified"; return 1; }
   run git fetch "$1" || return $?
-  # local -r branch=$(git rev-parse --abbrev-ref HEAD)
-  # run git reset --hard "origin/$branch" || return $?
-  run git reset --hard '@{u}' || return $?
+  branch=$(git branch --show current)
+  [ -n "$branch" ] || { echo "detached HEAD, aborting" >&2; return 1; }
+  run git reset --hard "$1/$branch" || return $?
 }
 
 function gitbrco() {

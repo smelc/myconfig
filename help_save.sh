@@ -7,8 +7,8 @@ declare -r FILEPATH="/tmp/${FILENAME}.tgz"
 
 (cd "$HOME/.password-store" && tar -czf "$FILEPATH" $(ls .))
 
-scp -P 58241 "$FILEPATH" clem@schplaf.org:~/helps/.
+scp -o ConnectTimeout=10 -P 58241 "$FILEPATH" clem@schplaf.org:~/helps/.
 echo "saving@schplaf: ✓"
 
-scp "$FILEPATH" smelc@makeitso.no-ip.org:~/helps/.
+scp -o ConnectTimeout=10 "$FILEPATH" smelc@makeitso.no-ip.org:~/helps/.
 echo "saving@makeitso: ✓"

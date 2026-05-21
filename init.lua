@@ -57,6 +57,20 @@ local tb = require('telescope.builtin')
 vim.keymap.set('n', '\\ff', tb.find_files, {})
 vim.keymap.set('n', '\\fg', tb.live_grep, {})
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ocamllsp
+-- LSP keybindings (active when a language server attaches)
+local on_attach = function(_, bufnr)
+  local opts = { buffer = bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- go to definition
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- hover documentation
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts) -- find references
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts) -- <space>rn renames symbol
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- <space>ca code-action (quickfixes)
+  vim.keymap.set('n', '<leader>t', vim.lsp.buf.type_definition, opts) -- <space>t show type definition
+end
+
+require'lspconfig'.ocamllsp.setup{ on_attach = on_attach }
+
 -- vim.api.nvim_set_keymap('n', '<leader-g>', "<cmd>:Grepper -tool ag<CR>", {})
 
 -- Do not autoreload files on change, ask for confirmation instead
