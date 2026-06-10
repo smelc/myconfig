@@ -103,7 +103,19 @@ fi
 # nvim #
 ########
 
-which nvim || { echo "Please install neovim: https://github.com/neovim/neovim/releases/ and restart this script"; exit 1; }
+if [[ ! $(which nvim) ]]; then
+  nvim_arch=$(uname -m) # x86_64 as-is; aarch64 -> arm64
+  [[ "$nvim_arch" == "aarch64" ]] && nvim_arch="arm64"
+  nvim_tarball="nvim-linux-${nvim_arch}.tar.gz"
+  mkdir -p "$HOME/.local"
+  curl -fsSL -o "/tmp/${nvim_tarball}" \
+    "https://github.com/neovim/neovim/releases/latest/download/${nvim_tarball}" \
+    || { echo "curl neovim release failed"; exit 1; }
+  tar xzf "/tmp/${nvim_tarball}" -C "$HOME/.local/" || { echo "tar neovim failed"; exit 1; }
+  rm -f "/tmp/${nvim_tarball}"
+  sudo ln -sf "$HOME/.local/nvim-linux-${nvim_arch}/bin/nvim" /usr/local/bin/nvim \
+    || { echo "ln -s nvim failed"; exit 1; }
+fi
 
 cd "$HOME"
 mkdir -p ".config/nvim/ftplugin"

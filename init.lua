@@ -34,6 +34,21 @@ require("lazy").setup({
 
     "neovim/nvim-lspconfig",
 
+    {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      config = function()
+        require("nvim-treesitter.configs").setup({
+          ensure_installed = {
+            "bash", "lua", "ocaml", "ocaml_interface", "haskell",
+            "sql", "json", "yaml", "markdown", "markdown_inline",
+            "dockerfile", "vim", "vimdoc",
+          },
+          highlight = { enable = true },
+        })
+      end,
+    },
+
     "BurntSushi/ripgrep", -- for telescope.nvim
 
     "simrat39/symbols-outline.nvim"
@@ -64,12 +79,16 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- go to definition
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- hover documentation
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts) -- find references
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts) -- <space>rn renames symbol
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- <space>ca code-action (quickfixes)
-  vim.keymap.set('n', '<leader>t', vim.lsp.buf.type_definition, opts) -- <space>t show type definition
+  vim.keymap.set('n', '\\rn', vim.lsp.buf.rename, opts) -- <space>rn renames symbol
+  vim.keymap.set('n', '\\ca', vim.lsp.buf.code_action, opts) -- <space>ca code-action (quickfixes)
+  vim.keymap.set('n', '\\t', vim.lsp.buf.type_definition, opts) -- <space>t show type definition
+  vim.keymap.set('n', '\\nf', function() vim.lsp.buf.format() end, opts) -- \nf format buffer via LSP
 end
 
-require'lspconfig'.ocamllsp.setup{ on_attach = on_attach }
+vim.lsp.config('ocamllsp', { on_attach = on_attach })
+vim.lsp.enable('ocamllsp')
+
+vim.diagnostic.config({ virtual_text = true })
 
 -- vim.api.nvim_set_keymap('n', '<leader-g>', "<cmd>:Grepper -tool ag<CR>", {})
 
@@ -77,5 +96,8 @@ require'lspconfig'.ocamllsp.setup{ on_attach = on_attach }
 vim.opt.autoread = false
 -- Do not write .swp files, which I've never benefited of
 vim.opt.swapfile = false
+-- Overwrite files in place on save (preserve inode) so single-file bind mounts
+-- in the devcontainer reflect host edits live
+vim.opt.backupcopy = "yes"
 -- Insert spaces instead of tabs
 vim.opt.expandtab = true
