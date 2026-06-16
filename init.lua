@@ -36,15 +36,20 @@ require("lazy").setup({
 
     {
       "nvim-treesitter/nvim-treesitter",
+      branch = "main", -- main supports Neovim 0.12; master is legacy (older Neovim only)
       build = ":TSUpdate",
       config = function()
-        require("nvim-treesitter.configs").setup({
-          ensure_installed = {
-            "bash", "lua", "ocaml", "ocaml_interface", "haskell",
-            "sql", "json", "yaml", "markdown", "markdown_inline",
-            "dockerfile", "vim", "vimdoc",
-          },
-          highlight = { enable = true },
+        require("nvim-treesitter").install({
+          "bash", "lua", "ocaml", "ocaml_interface", "haskell",
+          "sql", "json", "yaml", "markdown", "markdown_inline",
+          "dockerfile", "vim", "vimdoc",
+        })
+        -- The main branch does not auto-enable highlighting; start it per buffer.
+        -- pcall guards filetypes that have no installed parser.
+        vim.api.nvim_create_autocmd("FileType", {
+          callback = function(args)
+            pcall(vim.treesitter.start, args.buf)
+          end,
         })
       end,
     },
