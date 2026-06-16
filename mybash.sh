@@ -29,6 +29,11 @@ function gitbrco() {
   git checkout "$1"
 }
 
+function gitupdatebr() {
+  [[ -n "$1" ]] || { echo "Name of branch should be specified"; return 1; }
+  git fetch origin "+$1":"$1"
+}
+
 function cabalg() {
   [[ -n "$1" ]] || { echo "cabalg requires at least one parameter: the string to search"; return 1; }
   git grep $@ -- '*.cabal'
@@ -53,10 +58,6 @@ eval "$(direnv hook bash)"
 
 export PATH="/home/churlin/.local/bin:$PATH"
 
-# Things that typically go in .envrc:
-# [ -f "/home/churlin/.ghcup/env" ] && source "/home/churlin/.ghcup/env"
-# source "$HOME/.cargo/env"
-
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
 #   - the correct directories to the PATH
@@ -65,7 +66,3 @@ export PATH="/home/churlin/.local/bin:$PATH"
 test -r '/home/churlin/.opam/opam-init/init.sh' && . '/home/churlin/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
 # END opam configuration
 #
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
