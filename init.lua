@@ -81,6 +81,17 @@ vim.keymap.set('n', '\\fg', tb.live_grep, {})
 -- LSP keybindings (active when a language server attaches)
 local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
+  -- Tab-like completion: cycle the popup menu when visible, plain <Tab> otherwise
+  vim.keymap.set('i', '<Tab>', function()
+    return vim.fn.pumvisible() == 1 and '<C-n>' or '<Tab>'
+  end, { buffer = bufnr, expr = true })
+  vim.keymap.set('i', '<S-Tab>', function()
+    return vim.fn.pumvisible() == 1 and '<C-p>' or '<S-Tab>'
+  end, { buffer = bufnr, expr = true })
+  -- <C-Space> triggers LSP omni-completion (same as <C-x><C-o>).
+  -- Many terminals send <C-Space> as <C-@>/<Nul>, so map both.
+  vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { buffer = bufnr })
+  vim.keymap.set('i', '<C-@>', '<C-x><C-o>', { buffer = bufnr })
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- go to definition
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- hover documentation
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts) -- find references
