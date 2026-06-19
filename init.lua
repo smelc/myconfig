@@ -76,6 +76,14 @@ vim.api.nvim_set_keymap('n', '<S-h>', "<cmd>:tabp<CR>", {})
 local tb = require('telescope.builtin')
 vim.keymap.set('n', '\\ff', tb.find_files, {})
 vim.keymap.set('n', '\\fg', tb.live_grep, {})
+-- \fg in VISUAL mode: open live_grep prefilled with the current selection
+vim.keymap.set('x', '\\fg', function()
+  local sel = table.concat(
+    vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'), { type = vim.fn.mode() }),
+    '\n'
+  )
+  tb.live_grep({ default_text = sel })
+end, {})
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ocamllsp
 -- LSP keybindings (active when a language server attaches)
