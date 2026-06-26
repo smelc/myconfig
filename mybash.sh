@@ -10,6 +10,8 @@ alias cdgr='cd $(git rev-parse --show-toplevel)'
 alias gitdiffall='git difftool --dir-diff --tool=meld'
 alias grep="grep --exclude-dir=dist-newstyle"
 
+export GH_PAGER=cat
+
 function run() {
   echo "$@"
   "$@"
