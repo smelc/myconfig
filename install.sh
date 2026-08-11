@@ -195,6 +195,12 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 sudo update-alternatives --config x-terminal-emulator
 
 # Add icon
+rm -Rf kitty.app.png || true
+wget 'https://github.com/mtklr/kitty-nyancat-icon/blob/main/kitty.app.png?raw=true' -o kitty.app.png || { echo "download of custom kitty icon failed"; exit 1; }
+# Replace the default icon, which is (for reference, see below for kitty.desktop):
+# Icon=/home/churlin/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
+mv kitty.app.png "$HOME/.local/kitty.app/share/icons/kitty.app.png" || { echo "mv of custom kitty icon failed"; exit 1; }
+
 if [[ ! -e "$HOME/.local/share/applications/kitty.desktop" ]]
 then
   cat << EOT >> $HOME/.local/share/applications/kitty.desktop
@@ -206,7 +212,7 @@ GenericName=Terminal emulator
 Comment=Fast, feature-rich, GPU based terminal
 TryExec=kitty
 Exec=kitty
-Icon=/home/churlin/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png
+Icon=/home/churlin/.local/kitty.app/share/icons/kitty.app.png
 Categories=System;TerminalEmulator;"
 EOT
 fi
