@@ -271,5 +271,17 @@ ResultActive=yes
 EOL
 fi
 
+#######
+# ufw #
+#######
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+sudo ufw allow mdns
+sudo ufw status verbose
+# sudo ufw allow ssh
+# sudo ufw limit ssh
+
 # See Ubuntu 22.04 section (a bit below) in:
 # https://askubuntu.com/questions/1059479/dual-monitor-workspaces-in-ubuntu-18-04
