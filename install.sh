@@ -124,11 +124,20 @@ if [[ -e ".gitconfig" ]]; then
 else
   ln -s "${HERE}/.gitconfig" .
 fi
+
 cd ".config/nvim"
 ln -s "${HERE}/init.lua" .
 cd "$HERE"
+
 cd ".config/nvim/ftplugin"
 ln -s "${HERE}/haskell.lua" .
+cd "$HERE"
+
+# OCaml overrides (makeprg/errorformat) must load AFTER the built-in ocaml
+# ftplugin, so they live under after/ftplugin.
+mkdir -p "$HOME/.config/nvim/after/ftplugin"
+cd "$HOME/.config/nvim/after/ftplugin"
+ln -s "${HERE}/ocaml.lua" .
 cd "$HERE"
 
 # Install https://github.com/sharkdp/bat

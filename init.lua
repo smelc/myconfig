@@ -17,6 +17,7 @@ require("lazy").setup({
     "EdenEast/nightfox.nvim", -- nightfox
     "tpope/vim-fugitive", -- https://github.com/tpope/vim-fugitive
     "tpope/vim-commentary", -- gc to comment a line
+    "tpope/vim-dispatch", -- async :Make/:Dispatch into the quickfix list
     "vim-airline/vim-airline", -- nice status bar
     "junegunn/fzf",
 
