@@ -126,3 +126,21 @@ vim.opt.swapfile = false
 vim.opt.backupcopy = "yes"
 -- Insert spaces instead of tabs
 vim.opt.expandtab = true
+
+-- Inside a devcontainer, route the clipboard registers through OSC 52 instead: nvim emits the escape
+-- sequence, the host terminal (kitty) fills the host clipboard. Guarded by the
+-- flag the container's ~/.profile exports, because this file is also the host
+-- config, where the X clipboard works and is the better provider. Nvim only
+-- auto-enables OSC 52 over SSH, never under `docker exec`, hence the explicit
+-- setting.
+if vim.env.SG_DEVCONTAINER then
+  local osc52 = require('vim.ui.clipboard.osc52')
+  -- Paste reads the unnamed register: an OSC 52 *read* makes kitty prompt on
+  -- every paste, so ctrl+v (terminal-level) stays the way to paste from the host.
+  local paste = function() return vim.split(vim.fn.getreg('"'), '\n') end
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = { ['+'] = osc52.copy('+'), ['*'] = osc52.copy('*') },
+    paste = { ['+'] = paste, ['*'] = paste },
+  }
+end
