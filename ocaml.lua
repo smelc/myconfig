@@ -25,6 +25,17 @@ vim.b.dispatch = "dune build @check"
 local map = function(lhs, rhs, desc)
   vim.keymap.set("n", lhs, rhs, { buffer = true, desc = desc })
 end
-map("\\mm", "<cmd>Make @check<cr>", "dune: check the whole project (all errors -> quickfix)")
-map("\\mo", "<cmd>Make %:.:h<cr>", "dune: build this file's directory")
+-- dune build all
+map("\\da", "<cmd>Make @check<cr>", "dune: check the whole project (all errors -> quickfix)")
+-- dune build package
+map("\\dp", "<cmd>Make %:.:h<cr>", "dune: build this file's directory")
 map("\\co", "<cmd>Copen<cr>", "open the dispatch quickfix window")
+-- dune test package
+map("\\dtp", "<cmd>Dispatch dune runtest %:.:h<cr>", "dune: run this file's directory tests")
+
+-- switch interface: toggle between foo.ml and foo.mli
+map("\\si", function()
+  local file = vim.fn.expand("%:p")
+  local other = file:match("%.mli$") and file:sub(1, -2) or file .. "i"
+  vim.cmd.edit(vim.fn.fnameescape(other))
+end, "ocaml: switch between .ml and .mli")
