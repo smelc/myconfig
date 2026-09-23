@@ -1,5 +1,9 @@
 gui:
   skipDiscardChangeWarning: true
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --true-color=always --features=colibri
 os:
   # Copy through the terminal (OSC 52) instead of a clipboard tool, so lazygit
   # running in a devcontainer -- where there is no X display -- still lands in

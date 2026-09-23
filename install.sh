@@ -25,6 +25,7 @@ function apt_install_if_missing() {
 apt_install_if_missing autojump
 apt_install_if_missing chrome-gnome-shell
 apt_install_if_missing curl
+apt_install_if_missing delta # for syntax highlighting in diffs in lazygit
 apt_install_if_missing direnv
 apt_install_if_missing entr
 apt_install_if_missing fd-find # for nvim's telescope
