@@ -114,15 +114,6 @@ gnome-extensions disable ubuntu-appindicators@ubuntu.com
 
 Skeptics' Guide to the Universe, Skeptics with a K, Sawbones, Darknet diaries, Compositional, Designer notes (interviews de designers de JV), numberphile, code poscat (c'est mort maintenent mais le back catalogue est bien), the haskell cast (mort maintenant pareil)
 
-# GitHub
-
-- Check workflow syntax: [actionlint](https://golangexample.com/a-static-checker-for-github-actions-workflow-files/)
-- `nix run nixpkgs#gh -- pr list -s all -S 'org:kaiko-eng commenter:smelc updated:>=2022-09-12 sort:updated' --json state,number,title,url,author --jq '.[] | "[\(.state)] [#\(.number)](\(.url)) \"\(.title)\" by @\(.author.login)"'`
-
-# #linux
-
-- `/mode -n`
-
 # nix
 
 - Search for a package: `nix-env -qaP --description '.*bazel.*' | cat`
@@ -166,12 +157,4 @@ Generate dependencies graph:
 
 ```
 dune-deps src -h tezos-client | tred > deps.dot && dot -Tpng deps.dot -o deps.png && eog deps.png
-```
-
-# gemini-cli
-
-Update it:
-
-```
-sudo npm install -g @google/gemini-cli
 ```
