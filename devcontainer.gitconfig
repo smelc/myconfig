@@ -1,7 +1,18 @@
 # Mounted as ~/.gitconfig in the devcontainer
 # (see docker-compose-devcontainer.demo.yml).
 # gh reads GITHUB_TOKEN, so git pushes as whoever owns that token.
-[credential "https://github.com"]
-        helper = !gh auth git-credential
 [include]
         path = /home/churlin/myconfig/.config/delta/themes.gitconfig
+[alias]
+	root = rev-parse --show-toplevel
+	please = push --force-with-lease
+[absorb]
+        maxStack = 128
+[diff]
+	colormoved = default
+[credential "https://github.com"]
+        helper = !gh auth git-credential
+[init]
+	defaultBranch = main
+[core]
+	pager = cat
