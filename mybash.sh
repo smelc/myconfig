@@ -58,7 +58,7 @@ eval "$(direnv hook bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export PATH="/home/churlin/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:

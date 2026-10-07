@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "session": {
+    "permissions" : "autoaccept",
+    "sidebar": "hide"
+  },
+  "tabs": {
+    "mode": "on",
+    "layout": "horizontal",
+    "scope": "cwd",
+    "indicators": "status"
+  }
+}
