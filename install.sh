@@ -293,5 +293,14 @@ sudo ufw status verbose
 # sudo ufw allow ssh
 # sudo ufw limit ssh
 
+############
+# opencode #
+############
+
+[[ -e "$HOME/.config/opencode" ]] || mkdir -p "$HOME/.config/opencode"
+pushd "$HOME/.config/opencode"
+[[ -e "opencode.jsonc" ]] || ln -s $HERE/.config/opencode/opencode.jsonc .
+popd
+
 # See Ubuntu 22.04 section (a bit below) in:
 # https://askubuntu.com/questions/1059479/dual-monitor-workspaces-in-ubuntu-18-04
